@@ -39,30 +39,35 @@ public class ChatThread extends Thread {
 
     public void run() {
         try {
-            ResultSet resultSet1 = connecting.query_1("SELECT * FROM msg WHERE send_number = ?", Phone.number);
-            Tools.pause(1);
+            connecting.query("SELECT * FROM msg WHERE send_number = ?", Phone.number, "select");
+            ResultSet resultSet1 = connecting.getQueryResult();
+                    Tools.pause(1);
             while (resultSet1.next()) {
                 String message = resultSet1.getString("message");
                 String send_name = resultSet1.getString("send_name");
                 System.out.print("\n" + "[" + send_name + "]" + " : " + message);
-                connecting.query_1("DELETE FROM msg WHERE send_number = ?", Phone.number, "delete");
+                connecting.query("DELETE FROM msg WHERE send_number = ?", Phone.number, "delete");
             }
-            System.out.printf("=>:");
+            System.out.printf("\n=>:");
             while (!Thread.currentThread().isInterrupted()) {
                 if (th_check == true) {
                     break;
                 }
-                ResultSet resultSet = connecting.query_1("SELECT * FROM msg WHERE send_number = ?",Phone.number);
+                Tools.pause(1); //등록되기 이전 select하는 문제를 방지하기 위한 딜레이
+                connecting.query("SELECT * FROM msg WHERE send_number = ?",Phone.number, "select");
+                ResultSet resultSet = connecting.getQueryResult();
 
                 if (resultSet.next()) {
                     String message = resultSet.getString("message");
                     String send_name = resultSet.getString("send_name");
                     System.out.print("\n" + "[" + send_name + "]" + " : " + message + "\n(이어서 입력[0] : ");
-                    connecting.query_1("DELETE FROM msg WHERE send_number = ?", Phone.number, "delete");
+                    connecting.query("DELETE FROM msg WHERE send_number = ?", Phone.number, "delete");
                 } else {
+                    //무한 루프를 위한 else문
                 }
             }
         } catch (Exception e) {
+            System.out.printf("에러");
             ChatThread.optionThread("stop");
         }
     }

@@ -1,22 +1,23 @@
 package com.project.phone.main;
 
-import com.project.phone.database.DBsetting;
+import com.project.phone.database.Connecting;
 import com.project.phone.internet.Internet;
 import com.project.phone.message.Message;
 import com.project.phone.util.Tools;
 
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.util.Scanner;
 public class Phone {
     public static Internet internet = Internet.getInstance();
     public static Message message = Message.getInstance();
+    public static Connecting connecting = Connecting.getInstance();
+
     //의존성 주입 필요
     public static String name;
     public static String number;
     public static String model;
 
-    private static String signal = "X"; //신호 확인용
+    private static boolean signal = false; //db연결 유무 초기값
+    private static String signal_text = "X"; //db연결 유무 표시 문자
 
 
     private Phone() { }
@@ -112,14 +113,16 @@ public class Phone {
 
     public static int mainPhone(){
 
-        //연결 확인
-        try{
-            DriverManager.getConnection(DBsetting.url, DBsetting.username, DBsetting.password);
-            signal = "○";
-        } catch (SQLException e) {
-            signal = "X";
+        //db 연결 확인
+        if(connecting.DBconnect()){
+            signal = true;
+            signal_text = "○";
+        }else{
+            signal = false;
+            signal_text = "X";
         }
-        //연결 확인
+
+
 
 
         Scanner in = new Scanner(System.in);
@@ -129,7 +132,7 @@ public class Phone {
 
         System.out.printf("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
         System.out.printf("┃┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓      ┃\n");
-        System.out.printf("┃┃ ┏━━━━┓     ┏━━━━┓     ┏━━━━┓                              signal: (%s) ┃      ┃\n", signal);
+        System.out.printf("┃┃ ┏━━━━┓     ┏━━━━┓     ┏━━━━┓                              signal: (%s) ┃      ┃\n", signal_text);
         System.out.printf("┃┃internet     msg       hotel                                           ┃      ┃\n");
         System.out.printf("┃┃ ┗━━━━┛     ┗━━━━┛     ┗━━━━┛                                          ┃      ┃\n");
         System.out.printf("┃┃                                                                       ┃      ┃\n");
@@ -158,5 +161,9 @@ public class Phone {
 
 
         return 0;
+    }
+
+    public static boolean getSignal(){ //db연결 유무 반환 메서드
+        return Phone.signal;
     }
 }

@@ -54,11 +54,11 @@ public class Message {
         while(true){
             message = in.nextLine();
             System.out.printf("=>:");
-            if(message.equals("0")){
+            if(message.equals("0") || message.equals("home")){
                 ChatThread.optionThread("stop");
                 break;
             }
-            connecting.query_2("INSERT INTO msg (send_name, send_number, message) VALUES (?, ?, ?)", Phone.name, input, message);
+            connecting.query("INSERT INTO msg (send_name, send_number, message) VALUES (?, ?, ?)", Phone.name, input, message, "insert");
         }
 
 

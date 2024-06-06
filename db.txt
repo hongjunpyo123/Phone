@@ -1,0 +1,14 @@
+DROP TABLE IF EXISTS `msg`;
+CREATE TABLE `msg` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `send_name` varchar(11) NOT NULL,
+  `send_number` varchar(11) NOT NULL,
+  `message` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=317 DEFAULT CHARSET=utf8mb4;
+
+
+
+
+
+(C:\xampp\mysql\bin>mysqldump -u root -p phone > C:\xampp\mysql\data\backup.txt)

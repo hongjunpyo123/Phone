@@ -9,6 +9,7 @@ public class Connecting {
     private static Connecting connecting;
     private Connection connection;
     private PreparedStatement preparedStatement;
+    private ResultSet queryResult;
 
     private Connecting() {}
 
@@ -34,43 +35,63 @@ public class Connecting {
             return false;
         }
     }
-
-    public ResultSet query_1(String query, String parameter){
+    //query 처리 메서드
+    public void query(String query, String parameter, String option){
         try{
-            this.preparedStatement = this.connection.prepareStatement(query);
-            this.preparedStatement.setString(1, parameter);
-            return this.preparedStatement.executeQuery();
-
-        } catch (SQLException e) {
-            return null;
-        }
-    }
-
-    public void query_2(String query, String parameter_one, String parameter_two, String parameter_three){
-        try{
-            Statement statement = connection.createStatement();
-            PreparedStatement pstmt = connection.prepareStatement(query);
-            pstmt.setString(1, parameter_one);
-           pstmt.setString(2, parameter_two);
-           pstmt.setString(3, parameter_three);
-           pstmt.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public void query_1(String query, String parameter, String option){
-
-        try{
-            if(option.equals("delete")){
+            if(option.equals("delete") || option.equals("insert")){
+                Statement statement = connection.createStatement();
                 this.preparedStatement = this.connection.prepareStatement(query);
                 this.preparedStatement.setString(1, parameter);
                 this.preparedStatement.executeUpdate();
+            } else{ //return type
+                this.preparedStatement = this.connection.prepareStatement(query);
+                this.preparedStatement.setString(1, parameter);
+                this.queryResult = this.preparedStatement.executeQuery();
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
+    public void query(String query, String parameter, String parameter_two, String option){
+        try{
+            if(option.equals("delete") || option.equals("insert")){
+                Statement statement = connection.createStatement();
+                this.preparedStatement = this.connection.prepareStatement(query);
+                this.preparedStatement.setString(1, parameter);
+                this.preparedStatement.setString(2, parameter_two);
+                this.preparedStatement.executeUpdate();
+            }else{ //return type
+                this.preparedStatement = this.connection.prepareStatement(query);
+                this.preparedStatement.setString(1, parameter);
+                this.preparedStatement.setString(2, parameter_two);
+                this.queryResult =  this.preparedStatement.executeQuery();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void query(String query, String parameter, String parameter_two, String parameter_three, String option){
+        try{
+            if(option.equals("delete") || option.equals("insert")){
+                Statement statement = connection.createStatement();
+                this.preparedStatement = this.connection.prepareStatement(query);
+                this.preparedStatement.setString(1, parameter);
+                this.preparedStatement.setString(2, parameter_two);
+                this.preparedStatement.setString(3, parameter_three);
+                this.preparedStatement.executeUpdate();
+            }else{ //return type
+                this.preparedStatement = this.connection.prepareStatement(query);
+                this.preparedStatement.setString(1, parameter);
+                this.preparedStatement.setString(2, parameter_two);
+                this.preparedStatement.setString(3, parameter_three);
+                this.queryResult =  this.preparedStatement.executeQuery();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    //query 처리 메서드
+
 
     private void setConnection(Connection connection){
         this.connection = connection;
@@ -79,4 +100,18 @@ public class Connecting {
     public Connection getConnection(){
         return this.connection;
     }
+
+    public ResultSet getQueryResult(){
+        return this.queryResult;
+    }
+
+
+
+
+
+
+
+
+
+
 }
