@@ -1,6 +1,7 @@
 package com.project.phone.main;
 
 import com.project.phone.database.Connecting;
+import com.project.phone.hotel.Hotel;
 import com.project.phone.internet.Internet;
 import com.project.phone.message.Message;
 import com.project.phone.util.Tools;
@@ -10,6 +11,7 @@ public class Phone {
     public static Internet internet = Internet.getInstance();
     public static Message message = Message.getInstance();
     public static Connecting connecting = Connecting.getInstance();
+    public static Hotel hotel = Hotel.getInstance();
 
     //의존성 주입 필요
     public static String name;
@@ -157,6 +159,9 @@ public class Phone {
         }
         else if(input.equals("msg")){
             message.phoneMessage();
+        }
+        else if(input.equals("hotel")){
+            hotel.phoneHotel();
         }
 
 

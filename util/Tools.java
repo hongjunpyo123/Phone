@@ -17,6 +17,7 @@ public class Tools {
         try{
             Thread.sleep(second*1000);
         } catch (InterruptedException e) {
+            System.out.println("pause메서드 Exeption 발생");
         }
     }
 
@@ -26,6 +27,7 @@ public class Tools {
                 System.in.read();
             }
         } catch (IOException e) {
+            System.out.println("flush메서드 Exeption 발생");
             throw new RuntimeException(e);
         }
     }
@@ -34,6 +36,7 @@ public class Tools {
         try{
             Desktop.getDesktop().browse(new URI(url));
         }catch(Exception e) {
+            System.out.println("connectURL메서드 Exeption 발생");
         }
     }
 

@@ -38,9 +38,9 @@ public class Internet {
         System.out.printf("┃┃                                                                       ┃      ┃\n");
         System.out.printf("┃┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛      ┃\n");
         System.out.printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
-        System.out.printf("=>URL 입력[0]:");
+        System.out.printf("=>URL:");
         String url= this.in.nextLine();
-        if(url.equals("0")){
+        if(url.equals("0") || url.equals("home")){
             return 0;
         }
         // URL 출력
