@@ -6,12 +6,14 @@ import com.project.phone.internet.Internet;
 import com.project.phone.message.Message;
 import com.project.phone.util.Tools;
 
+import java.time.LocalDate;
 import java.util.Scanner;
 public class Phone {
     public static Internet internet = Internet.getInstance();
     public static Message message = Message.getInstance();
     public static Connecting connecting = Connecting.getInstance();
     public static Hotel hotel = Hotel.getInstance();
+    public static LocalDate today = LocalDate.now();
 
     //의존성 주입 필요
     public static String name;
