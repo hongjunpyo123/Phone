@@ -11,4 +11,4 @@ CREATE TABLE `msg` (
 
 
 
-(C:\xampp\mysql\bin>mysqldump -u root -p phone > C:\xampp\mysql\data\backup.txt)
+(C:\xampp\mysql\bin>mysqldump -u root -p phone > "C:\Users\0721h\OneDrive\바탕 화면\자바프로그래밍\hello_inteli\hello\src\com\project\phone\backup.txt")

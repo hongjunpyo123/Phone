@@ -33,11 +33,11 @@ public class Reservation {
         System.out.print("예약 인원 : ");
         String persons = in.next();
 
-        System.out.print("\n체크인 날짜(2024/00/00) : ");
+        System.out.print("\n체크인 날짜(24/00/00) : ");
         String check_in_date = in.next();
         Tools.flush(); //입력 버퍼 비우기 / 개행문자
 
-        System.out.print("\n이용 시간(00:00) : ");
+        System.out.print("\n이용 시간(4) : ");
         String usage_time = in.next();
         Tools.flush(); //입력 버퍼 비우기 / 개행문자
 

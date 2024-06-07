@@ -53,6 +53,10 @@ public class Hotel {
             }
 
         }
+        else{
+            System.out.println("정상적인 값이 아닙니다. \n([1] or [2] or [3] or [0] or [home]) ");
+            Tools.pause(3);
+        }
 
         return 0;
     }
