@@ -69,7 +69,7 @@ public class Reservation {
             }
         }
         else if(type.equals("3")){//guest room
-            GuestRoom guestRoom = new GuestRoom(persons, check_in_date, usage_time, check_in_time, "3500");
+            GuestRoom guestRoom = new GuestRoom(persons, check_in_date, usage_time, check_in_time, "4000");
             roomAdd(guestRoom);
             if(connecting.query("INSERT INTO hotel (name, number, persons, check_in_date, usage_time, check_in_time, type, houlyrate, today) " +
                             "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
