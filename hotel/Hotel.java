@@ -1,5 +1,6 @@
 package com.project.phone.hotel;
 
+import com.project.phone.main.Phone;
 import com.project.phone.util.Tools;
 
 import java.util.Scanner;
@@ -38,6 +39,11 @@ public class Hotel {
         System.out.printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
         System.out.printf("=>:");
         input = this.in.next();
+        if(!Phone.getSignal()){
+            System.out.println("연결 상태를 확인해주세요.");
+            Tools.pause(2);
+            return 0;
+        }
         if(input.equals("home")){
             return 0;
         }
