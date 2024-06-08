@@ -48,11 +48,11 @@ public class Message {
             Tools.pause(2);
             return 0;
         }
-        if(!ChatThread.optionThread("start")){
-            Tools.pause(2);
+        if(input.equals("home")){
             return 0;
         }
-        if(input.equals("home")){
+        if(!ChatThread.optionThread("start")){
+            Tools.pause(2);
             return 0;
         }
         Tools.pause(2);

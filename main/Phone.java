@@ -22,6 +22,7 @@ public class Phone {
 
     private static boolean signal = false; //db연결 유무 초기값
     private static String signal_text = "X"; //db연결 유무 표시 문자
+    private static boolean re_start = false;
 
 
     private Phone() { }
@@ -109,9 +110,11 @@ public class Phone {
             System.out.printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
             Tools.pause(3);
 
-            while(true) {
+            while(!re_start) {
                 Phone.mainPhone(); //함수가 종료되었을 때 mainPhone이 다시 호출되게 하기 위함
             }
+            re_start = false;
+            break;
         }
     }
 
@@ -148,12 +151,18 @@ public class Phone {
         System.out.printf("┃┃                                                                       ┃      ┃\n");
         System.out.printf("┃┃                                                                       ┃      ┃\n");
         System.out.printf("┃┃                                                                       ┃      ┃\n");
-        System.out.printf("┃┃                                                                       ┃      ┃\n");
+        System.out.printf("┃┃                                                           re-start[0] ┃      ┃\n");
         System.out.printf("┃┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛      ┃\n");
         System.out.printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
         System.out.printf("=>:");
         input = in.nextLine();
         if(input.equals("home")){
+            return 0;
+        }
+        else if(input.equals("0")){
+            System.out.println("휴대폰을 재시작합니다.");
+            Tools.pause(2);
+            re_start = true;
             return 0;
         }
         else if(input.equals("internet")){
