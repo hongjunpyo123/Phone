@@ -32,7 +32,7 @@ public class Inquiry {
             System.out.println("이용 시간 : "+reservation.getRoom().get(i).getUsage_time());
             System.out.println("------------------------------------------------------------------");
         }
-        System.out.print("확인 하셨으면 ENTER를 눌러주세요");
+        System.out.print("[ENTER를 눌러주세요]");
         in.nextLine();
         return true;
     }
