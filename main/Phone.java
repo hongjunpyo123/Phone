@@ -36,12 +36,12 @@ public class Phone {
         while (true) {
             Tools.clear();
             System.out.println("** 휴대폰 생성 페이지 **");
-            System.out.print("모델명을 입력해주세요 : ");
+            System.out.print("모델명을 입력해주세요(영문) : ");
             model = in.next();
-            System.out.print("사용자 이름을 입력해주세요 : ");
+            System.out.print("사용자 이름을 입력해주세요(영문) : ");
             name = in.next();
             System.out.print("사용할 " +
-                    "전화번호를 입력해주세요 : ");
+                    "전화번호를 입력해주세요(11글자, -제외) : ");
             number = in.next();
             if (number.length() != 11) {
                 System.out.println("\n전화번호가 유효하지 않습니다 다시 입력하세요!");
@@ -151,7 +151,7 @@ public class Phone {
         System.out.printf("┃┃                                                                       ┃      ┃\n");
         System.out.printf("┃┃                                                                       ┃      ┃\n");
         System.out.printf("┃┃                                                                       ┃      ┃\n");
-        System.out.printf("┃┃                                                           re-start[0] ┃      ┃\n");
+        System.out.printf("┃┃                                                           [0] : reset ┃      ┃\n");
         System.out.printf("┃┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛      ┃\n");
         System.out.printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
         System.out.printf("=>:");

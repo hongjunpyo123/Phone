@@ -10,12 +10,12 @@ import java.util.Scanner;
 
 public class Reservation {
     Scanner in = new Scanner(System.in);
+    static Reservation reservation;
     Connecting connecting = Connecting.getInstance();
     private String input;
     private int cnt;
-    private int size;
     private List<Room> room;
-    public Reservation(){
+    private Reservation(){
         this.cnt = 0;
         room = new ArrayList<>();
     }
@@ -45,11 +45,9 @@ public class Reservation {
         String check_in_time = in.next();
 
         if(type.equals("1")){//study room
-            StudyRoom studyRoom = new StudyRoom(persons, check_in_date, usage_time, check_in_time, "2000");
-            roomAdd(studyRoom);
             if(connecting.query("INSERT INTO hotel (name, number, persons, check_in_date, usage_time, check_in_time, type, houlyrate, today) " +
                             "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
-                    Phone.name, Phone.number, persons, check_in_date, usage_time,check_in_time, "StudyRoom", studyRoom.getHourlyRate(), Phone.today.toString(),"insert"))
+                    Phone.name, Phone.number, persons, check_in_date, usage_time,check_in_time, "StudyRoom", "2000", Phone.today.toString(),"insert"))
             {
                 return true;
             } else{
@@ -57,11 +55,9 @@ public class Reservation {
             }
         }
         else if(type.equals("2")){//meeting room
-            MeetingRoom meetingRoom = new MeetingRoom(persons, check_in_date, usage_time, check_in_time, "3500");
-            roomAdd(meetingRoom);
             if(connecting.query("INSERT INTO hotel (name, number, persons, check_in_date, usage_time, check_in_time, type, houlyrate, today) " +
                             "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
-                    Phone.name, Phone.number, persons, check_in_date, usage_time,check_in_time, "MeetingRoom", meetingRoom.getHourlyRate(), Phone.today.toString(),"insert"))
+                    Phone.name, Phone.number, persons, check_in_date, usage_time,check_in_time, "MeetingRoom", "3500", Phone.today.toString(),"insert"))
             {
                 return true;
             } else{
@@ -69,11 +65,9 @@ public class Reservation {
             }
         }
         else if(type.equals("3")){//guest room
-            GuestRoom guestRoom = new GuestRoom(persons, check_in_date, usage_time, check_in_time, "4000");
-            roomAdd(guestRoom);
             if(connecting.query("INSERT INTO hotel (name, number, persons, check_in_date, usage_time, check_in_time, type, houlyrate, today) " +
                             "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
-                    Phone.name, Phone.number, persons, check_in_date, usage_time,check_in_time, "GuestRoom", guestRoom.getHourlyRate(), Phone.today.toString(),"insert"))
+                    Phone.name, Phone.number, persons, check_in_date, usage_time,check_in_time, "GuestRoom", "4000", Phone.today.toString(),"insert"))
             {
                 return true;
             } else{
@@ -82,8 +76,22 @@ public class Reservation {
         }
         return false;
     }
+    public static Reservation getInstance(){
+        if(reservation == null){
+            return reservation = new Reservation();
+        }
+        return reservation;
+    }
 
     public int getCnt(){
         return this.cnt;
+    }
+
+    public List<Room> getRoom(){
+        return this.room;
+    }
+
+    public void setCnt(int cnt){
+        this.cnt = cnt;
     }
 }

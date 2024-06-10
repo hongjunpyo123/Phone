@@ -1,5 +1,6 @@
 package com.project.phone.hotel;
 
+import com.project.phone.database.Connecting;
 import com.project.phone.main.Phone;
 import com.project.phone.util.Tools;
 
@@ -8,7 +9,10 @@ import java.util.Scanner;
 public class Hotel {
     Scanner in = new Scanner(System.in);
     private static Hotel hotel;
-    private Reservation reservation = new Reservation(); //예약 객체 생성
+    private Reservation reservation = Reservation.getInstance(); //예약 객체 생성
+    private Connecting connecting = Connecting.getInstance(); //db연결 객체 생성
+    private Inquiry inquiry = Inquiry.getInstance(reservation, connecting); //생성자 의존성 주입
+
     private Hotel() {}
 
 
@@ -44,21 +48,25 @@ public class Hotel {
             Tools.pause(2);
             return 0;
         }
-        if(input.equals("home")){
+        if(input.equals("home")){ //돌아가기
             return 0;
         }
-        else if(input.equals("1") || input.equals("2") || input.equals("3")){
+        else if(input.equals("1") || input.equals("2") || input.equals("3")){ //호텔예약
             if(this.reservation.hotelReservation(input)){
-                System.out.println("성공적으로 예약되었습니다.");
+                System.out.println("예약 정보를 전송하였습니다.");
                 Tools.pause(2);
                 return 0;
             } else{
-                System.out.println("예약에 실패하였습니다.");
+                System.out.println("얘약 정보 전송에 실패하였습니다.");
                 Tools.pause(2);
                 return 0;
             }
 
         }
+        else if(input.equals("0")){ //예약조회
+            inquiry.hotelInquiry();
+        }
+
         else{
             System.out.println("정상적인 값이 아닙니다. \n([1] or [2] or [3] or [0] or [home]) ");
             Tools.pause(3);
