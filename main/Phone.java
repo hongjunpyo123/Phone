@@ -37,7 +37,7 @@ public class Phone {
             Tools.clear();
             System.out.println("** 휴대폰 생성 페이지 **");
 
-            System.out.print("모델명을 입력해주세요(영문) : ");
+            System.out.print("모델명을 입력해주세요(영문, 숫자) : ");
             model = in.next();
             if (!model.matches("^[a-zA-Z0-9]*$")){ //영문인지 검사
                 System.out.println("\n모델명이 유효하지 않습니다 다시 입력하세요!");
@@ -45,7 +45,7 @@ public class Phone {
                 continue;
             }
 
-            System.out.print("사용자 이름을 입력해주세요(영문) : ");
+            System.out.print("사용자 이름을 입력해주세요(영문, 숫자) : ");
             name = in.next();
             if (!name.matches("^[a-zA-Z0-9]*$")){ //영문인지 검사
                 System.out.println("\n이름이 유효하지 않습니다 다시 입력하세요!");
@@ -154,7 +154,7 @@ public class Phone {
         System.out.printf("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
         System.out.printf("┃┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓      ┃\n");
         System.out.printf("┃┃ ┏━━━━┓     ┏━━━━┓     ┏━━━━┓                              signal: (%s) ┃      ┃\n", signal_text);
-        System.out.printf("┃┃internet     msg       hotel                                           ┃      ┃\n");
+        System.out.printf("┃┃internet    message    yanolja                                         ┃      ┃\n");
         System.out.printf("┃┃ ┗━━━━┛     ┗━━━━┛     ┗━━━━┛                                          ┃      ┃\n");
         System.out.printf("┃┃                                                                       ┃      ┃\n");
         System.out.printf("┃┃                                                                       ┃      ┃\n");
@@ -182,10 +182,10 @@ public class Phone {
         else if(input.equals("internet")){
             internet.phoneInternet();
         }
-        else if(input.equals("msg")){
+        else if(input.equals("message")){
             message.phoneMessage();
         }
-        else if(input.equals("hotel")){
+        else if(input.equals("yanolja")){
             hotel.phoneHotel();
         }
 

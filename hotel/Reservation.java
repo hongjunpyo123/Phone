@@ -30,18 +30,18 @@ public class Reservation {
 
     }
     public boolean hotelReservation(String type){
-        System.out.print("예약 인원 : ");
+        System.out.print("예약 인원(ex> 10) : ");
         String persons = in.next();
 
-        System.out.print("\n체크인 날짜(24/00/00) : ");
+        System.out.print("\n체크인 날짜(ex> 24/00/00) : ");
         String check_in_date = in.next();
         Tools.flush(); //입력 버퍼 비우기 / 개행문자
 
-        System.out.print("\n이용 시간(4) : ");
+        System.out.print("\n이용 시간(ex> 4) : ");
         String usage_time = in.next();
         Tools.flush(); //입력 버퍼 비우기 / 개행문자
 
-        System.out.print("\n체크인 시간(00:00) : ");
+        System.out.print("\n체크인 시간(ex> 00:00) : ");
         String check_in_time = in.next();
 
         if(type.equals("1")){//study room
