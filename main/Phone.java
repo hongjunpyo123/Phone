@@ -5,6 +5,7 @@ import com.project.phone.file.FileIO;
 import com.project.phone.hotel.Hotel;
 import com.project.phone.internet.Internet;
 import com.project.phone.message.Message;
+import com.project.phone.setting.Setting;
 import com.project.phone.util.Tools;
 
 import java.time.LocalDate;
@@ -16,6 +17,7 @@ public class Phone {
     public static Hotel hotel = Hotel.getInstance();
     public static FileIO fileIO = FileIO.getInstance();
     public static LocalDate today = LocalDate.now();
+    public static Setting setting = Setting.getInstance(fileIO);
 
     //의존성 주입 필요
     public static String name;
@@ -158,9 +160,9 @@ public class Phone {
 
         System.out.printf("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
         System.out.printf("┃┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓      ┃\n");
-        System.out.printf("┃┃ ┏━━━━┓     ┏━━━━┓     ┏━━━━┓                              signal: (%s) ┃      ┃\n", signal_text);
-        System.out.printf("┃┃internet    message    yanolja                                         ┃      ┃\n");
-        System.out.printf("┃┃ ┗━━━━┛     ┗━━━━┛     ┗━━━━┛                                          ┃      ┃\n");
+        System.out.printf("┃┃ ┏━━━━┓     ┏━━━━┓     ┏━━━━┓     ┏━━━━┓                   signal: (%s) ┃      ┃\n", signal_text);
+        System.out.printf("┃┃internet    message    yanolja    setting                              ┃      ┃\n");
+        System.out.printf("┃┃ ┗━━━━┛     ┗━━━━┛     ┗━━━━┛     ┗━━━━┛                               ┃      ┃\n");
         System.out.printf("┃┃                                                                       ┃      ┃\n");
         System.out.printf("┃┃                                                                       ┃      ┃\n");
         System.out.printf("┃┃                                                                       ┃┏━━━━┓┃\n");
@@ -192,6 +194,9 @@ public class Phone {
         }
         else if(input.equals("yanolja")){
             hotel.phoneHotel();
+        }
+        else if(input.equals("setting")){
+            setting.settingView();
         }
 
 
