@@ -53,12 +53,21 @@ public class Setting {
         System.out.printf("┃┃                                                                       ┃      ┃\n");
         System.out.printf("┃┃                                                                       ┃      ┃\n");
         System.out.printf("┃┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫      ┃\n");
-        System.out.printf("┃┃ [0] :                                                                 ┃      ┃\n");
+        System.out.printf("┃┃ [0] : Edit File                                                       ┃      ┃\n");
         System.out.printf("┃┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛      ┃\n");
         System.out.printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
         System.out.printf("=>:");
         input = this.in.next();
         if(input.equals("home")){
+            return 0;
+        }
+        else if(input.equals(("0"))){
+            if(!Tools.runFile("setting.txt")){
+                System.out.println("파일이 존재하지 않습니다.");
+                return 0;
+            }
+        }else{
+            System.out.println("잘못된 입력값입니다.");
             return 0;
         }
         return 0;

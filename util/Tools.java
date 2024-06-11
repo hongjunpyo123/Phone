@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.net.URI;
 
 public class Tools {
+    private static Runtime runtime = Runtime.getRuntime();
+    private static Process process;
     private Tools() {}
 
     public static void clear(){
@@ -40,5 +42,16 @@ public class Tools {
         }
     }
 
+    public static boolean runFile(String path){
+        try{
+            process = runtime.exec("cmd /c start data/"+path); //윈도우 전용 함수 / setting.txt파일 실행
+            process.waitFor();
+            return true;
+        } catch (IOException e) {
+            return false;
+        } catch (InterruptedException e) {
+            return false;
+        }
+    }
 
 }
