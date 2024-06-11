@@ -1,6 +1,7 @@
 package com.project.phone.main;
 
 import com.project.phone.database.Connecting;
+import com.project.phone.file.FileIO;
 import com.project.phone.hotel.Hotel;
 import com.project.phone.internet.Internet;
 import com.project.phone.message.Message;
@@ -13,6 +14,7 @@ public class Phone {
     public static Message message = Message.getInstance();
     public static Connecting connecting = Connecting.getInstance();
     public static Hotel hotel = Hotel.getInstance();
+    public static FileIO fileIO = FileIO.getInstance();
     public static LocalDate today = LocalDate.now();
 
     //의존성 주입 필요
@@ -133,6 +135,9 @@ public class Phone {
     }
 
     public static int mainPhone(){
+        //설정 파일 생성
+        fileIO.createFile("setting.txt");//setting파일 생성
+        fileIO.FileRead("setting.txt"); //setting파일을 읽어온 후 변수에 저장
 
         //db 연결 확인
         if(connecting.DBconnect()){

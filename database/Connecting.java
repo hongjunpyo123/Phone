@@ -31,7 +31,7 @@ public class Connecting {
         } catch (SQLException e) {
             ChatThread.optionThread("stop");
             System.out.println("(fail)");
-            Tools.pause(2);
+            Tools.pause(1);
             return false;
         }
     }
