@@ -45,7 +45,7 @@ public class Hotel {
         input = this.in.next();
         if(!Phone.getSignal()){
             System.out.println("연결 상태를 확인해주세요.");
-            Tools.pause(2);
+            Tools.pause(1);
             return 0;
         }
         if(input.equals("home")){ //돌아가기

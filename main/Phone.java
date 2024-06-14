@@ -1,5 +1,6 @@
 package com.project.phone.main;
 
+import com.project.phone.bank.Bank;
 import com.project.phone.database.Connecting;
 import com.project.phone.file.FileIO;
 import com.project.phone.hotel.Hotel;
@@ -16,10 +17,10 @@ public class Phone {
     public static Connecting connecting = Connecting.getInstance();
     public static Hotel hotel = Hotel.getInstance();
     public static FileIO fileIO = FileIO.getInstance();
+    public static Bank bank = Bank.getInstance();
     public static LocalDate today = LocalDate.now();
     public static Setting setting = Setting.getInstance(fileIO);
 
-    //의존성 주입 필요
     public static String name;
     public static String number;
     public static String model;
@@ -165,9 +166,9 @@ public class Phone {
         System.out.printf("┃┃ ┗━━━━┛     ┗━━━━┛     ┗━━━━┛     ┗━━━━┛                               ┃      ┃\n");
         System.out.printf("┃┃                                                                       ┃      ┃\n");
         System.out.printf("┃┃                                                                       ┃      ┃\n");
-        System.out.printf("┃┃                                                                       ┃┏━━━━┓┃\n");
-        System.out.printf("┃┃                                                                       ┃┃home┃┃\n");
-        System.out.printf("┃┃                                                                       ┃┗━━━━┛┃\n");
+        System.out.printf("┃┃ ┏━━━━┓     ┏━━━━┓                                                     ┃┏━━━━┓┃\n");
+        System.out.printf("┃┃  bank       game                                                      ┃┃home┃┃\n");
+        System.out.printf("┃┃ ┗━━━━┛     ┗━━━━┛                                                     ┃┗━━━━┛┃\n");
         System.out.printf("┃┃                                                                       ┃      ┃\n");
         System.out.printf("┃┃                                                                       ┃      ┃\n");
         System.out.printf("┃┃                                                                       ┃      ┃\n");
@@ -197,6 +198,12 @@ public class Phone {
         }
         else if(input.equals("setting")){
             setting.settingView();
+        }
+        else if(input.equals("bank")){
+            bank.phoneBank();
+        }
+        else if(input.equals("game")){
+
         }
 
 

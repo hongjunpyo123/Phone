@@ -44,7 +44,7 @@ public class Tools {
 
     public static boolean runFile(String path){
         try{
-            process = runtime.exec("cmd /c start data/"+path); //윈도우 전용 함수 / setting.txt파일 실행
+            process = runtime.exec("cmd /c start data/"+path); //윈도우 전용 함수, os종속 문제(?) / setting.txt파일 실행
             process.waitFor();
             return true;
         } catch (IOException e) {
@@ -52,6 +52,10 @@ public class Tools {
         } catch (InterruptedException e) {
             return false;
         }
+    }
+
+    public static int intLength(int myInt){
+        return Integer.toString(myInt).length();
     }
 
 }
