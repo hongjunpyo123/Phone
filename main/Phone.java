@@ -54,7 +54,7 @@ public class Phone {
 
             System.out.print("사용자 이름을 입력해주세요(영문, 숫자) : ");
             name = in.next();
-            if (!name.matches("^[a-zA-Z0-9]*$")){ //영문인지 검사
+            if (!name.matches("^[a-zA-Z0-9]*$") || name.length() > 10){ //영문인지 검사
                 System.out.println("\n이름이 유효하지 않습니다 다시 입력하세요!");
                 Tools.pause(2);
                 continue;
