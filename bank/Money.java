@@ -1,6 +1,7 @@
 package com.project.phone.bank;
 
 import com.project.phone.database.Connecting;
+import com.project.phone.main.Phone;
 
 import java.sql.SQLException;
 
@@ -23,5 +24,33 @@ public class Money {
         }
 
         return cash;
+    }
+
+    public static boolean addMoney(String account, int cash, String name){
+        if(connecting.query("UPDATE bank SET cash = cash + ? WHERE account = ?", Integer.toString(cash), account, "insert")){
+            connecting.query("INSERT INTO transfer (account, cash, sendName, type, today) VALUES (?, ?, ?, ?, ?)",
+                    account,
+                    Integer.toString(cash),
+                    name,
+                    "add",
+                    Phone.today.toString(), "insert");
+            return true;
+        }else {
+            return false;
+        }
+    }
+    public static boolean subMoney(String account, int cash, String name){
+        if(connecting.query("UPDATE bank SET cash = cash - ? WHERE account = ?", Integer.toString(cash), account, "insert")){
+            connecting.query("INSERT INTO transfer (account, cash, sendName, type, today) VALUES (?, ?, ?, ?, ?)",
+                    account,
+                    Integer.toString(cash),
+                    name,
+                    "sub",
+                    Phone.today.toString(), "insert");
+
+            return true;
+        }else {
+            return false;
+        }
     }
 }

@@ -33,6 +33,8 @@ public class Phone {
     private Phone() { }
 
     public static void main(String[] args) {
+
+
         String model;
         String name;
         String number;

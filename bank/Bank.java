@@ -14,9 +14,10 @@ public class Bank {
     private String input = null;
     Connecting connecting = Connecting.getInstance();
     CreateAccount createAccount = CreateAccount.getInstance(connecting); //connecting의존성 주입
+    SendMoney sendMoney = SendMoney.getInstance(connecting, createAccount);// connecting, createAccount 의존성 주입
+    TransferHistory transferHistory = TransferHistory.getInstance(connecting);
 
     private Bank(){ }
-
 
 
     public int phoneBank(){
@@ -30,7 +31,8 @@ public class Bank {
             if (createAccount.createAccount() == -1) {
                 return 0;
             }
-        }else{
+        }else {
+            while (true) {
                 Tools.clear(); //화면 초기화
                 Tools.flush(); //입력버퍼 초기화
 
@@ -49,8 +51,8 @@ public class Bank {
                 System.out.printf("┃┃                                                                       ┃      ┃\n");
                 System.out.printf("┃┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫      ┃\n");
                 System.out.printf("┃┃                     my account number : %s                      ┃      ┃\n", createAccount.getAccountNumber());
-                System.out.printf("┃┃                               my cash : %d", Money.getCash());
-                for(int i = 0; i < 30-Tools.intLength(Money.getCash()); i++){
+                System.out.printf("┃┃                               my cash : %,d(won)", Money.getCash());
+                for (int i = 0; i < 24 - Tools.intLength(Money.getCash()); i++) {
                     System.out.printf(" ");
                 }
                 System.out.printf("┃      ┃\n");
@@ -58,13 +60,19 @@ public class Bank {
                 System.out.printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
                 System.out.printf("=>:");
                 input = in.nextLine();
-                if(input.equals("home")){
+                if (input.equals("home")) {
                     return 0;
                 }
-
-
+                else if(input.equals("1")){
+                    if(!transferHistory.BankTransferHistory(createAccount.getAccountNumber())){
+                        return 0;
+                    }
+                }
+                else if(input.equals("2")){
+                    sendMoney.bankSendMoney();
+                }
             }
-
+        }
 
 
 
