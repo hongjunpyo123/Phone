@@ -55,6 +55,9 @@ public class Bank {
                 for (int i = 0; i < 24 - Tools.intLength(Money.getCash()); i++) {
                     System.out.printf(" ");
                 }
+                if(Tools.intLength(Money.getCash()) <= 3){
+                    System.out.printf(" ");
+                }
                 System.out.printf("┃      ┃\n");
                 System.out.printf("┃┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛      ┃\n");
                 System.out.printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
@@ -89,7 +92,7 @@ public class Bank {
         return bank;
     }
 
-    private boolean checkAccount(){
+    public boolean checkAccount(){
         connecting.query("SELECT * FROM bank WHERE number = ?", Phone.number, "select");
         try{
             if(connecting.getQueryResult().next()){

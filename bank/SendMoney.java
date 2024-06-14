@@ -41,6 +41,9 @@ public class SendMoney {
         for(int i = 0; i < 24- Tools.intLength(Money.getCash()); i++){
             System.out.printf(" ");
         }
+        if(Tools.intLength(Money.getCash()) <= 3){
+            System.out.printf(" ");
+        }
         System.out.printf("┃      ┃\n");
         System.out.printf("┃┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛      ┃\n");
         System.out.printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
@@ -85,6 +88,9 @@ public class SendMoney {
         for(int i = 0; i < 23- Tools.intLength(this.inputCash); i++){
             System.out.printf(" ");
         }
+        if(Tools.intLength(this.inputCash) <= 3){
+            System.out.printf(" ");
+        }
         System.out.printf("┃  ┃┃home┃┃\n");
         System.out.printf("┃┃                     ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛  ┃┗━━━━┛┃\n");
         System.out.printf("┃┃                                                                       ┃      ┃\n");
@@ -93,6 +99,9 @@ public class SendMoney {
         System.out.printf("┃┃                     my account number : %s                      ┃      ┃\n", createAccount.getAccountNumber());
         System.out.printf("┃┃                               my cash : %,d(won)", Money.getCash()-this.inputCash);
         for(int i = 0; i < 24- Tools.intLength(Money.getCash()-this.inputCash); i++){
+            System.out.printf(" ");
+        }
+        if(Tools.intLength(this.inputCash) <= 3){
             System.out.printf(" ");
         }
         System.out.printf("┃      ┃\n");
