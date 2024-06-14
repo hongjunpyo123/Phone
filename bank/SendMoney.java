@@ -101,7 +101,7 @@ public class SendMoney {
         for(int i = 0; i < 24- Tools.intLength(Money.getCash()-this.inputCash); i++){
             System.out.printf(" ");
         }
-        if(Tools.intLength(this.inputCash) <= 3){
+        if(Tools.intLength(Tools.intLength(Money.getCash()-this.inputCash)) <= 3){
             System.out.printf(" ");
         }
         System.out.printf("┃      ┃\n");

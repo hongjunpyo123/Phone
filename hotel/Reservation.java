@@ -98,7 +98,7 @@ public class Reservation {
                 Tools.pause(1);
                 return false;
             }
-            if(Integer.parseInt(usage_time)*2000 > Money.getCash()){
+            if(Integer.parseInt(usage_time)*3500 > Money.getCash()){
                 System.out.println("잔액이 부족합니다.");
                 Tools.pause(1);
                 return false;
@@ -125,7 +125,7 @@ public class Reservation {
                 Tools.pause(1);
                 return false;
             }
-            if(Integer.parseInt(usage_time)*2000 > Money.getCash()){
+            if(Integer.parseInt(usage_time)*4000 > Money.getCash()){
                 System.out.println("잔액이 부족합니다.");
                 Tools.pause(1);
                 return false;
