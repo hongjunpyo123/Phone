@@ -92,7 +92,7 @@ public class SendMoney {
         System.out.printf("┃┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫      ┃\n");
         System.out.printf("┃┃                     my account number : %s                      ┃      ┃\n", createAccount.getAccountNumber());
         System.out.printf("┃┃                               my cash : %,d(won)", Money.getCash()-this.inputCash);
-        for(int i = 0; i < 24- Tools.intLength(Money.getCash()); i++){
+        for(int i = 0; i < 24- Tools.intLength(Money.getCash()-this.inputCash); i++){
             System.out.printf(" ");
         }
         System.out.printf("┃      ┃\n");

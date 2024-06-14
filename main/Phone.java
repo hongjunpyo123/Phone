@@ -174,8 +174,8 @@ public class Phone {
         System.out.printf("┃┃                                                                       ┃      ┃\n");
         System.out.printf("┃┃                                                                       ┃      ┃\n");
         System.out.printf("┃┃                                                                       ┃      ┃\n");
-        System.out.printf("┃┃                                                                       ┃      ┃\n");
-        System.out.printf("┃┃                                                           [0] : reset ┃      ┃\n");
+        System.out.printf("┃┃                                                   [1] : re-connecting ┃      ┃\n");
+        System.out.printf("┃┃                                                   [0] : reset         ┃      ┃\n");
         System.out.printf("┃┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛      ┃\n");
         System.out.printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
         System.out.printf("=>:");
