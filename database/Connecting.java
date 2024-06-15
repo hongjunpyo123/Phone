@@ -1,5 +1,6 @@
 package com.project.phone.database;
 
+import com.project.phone.main.Phone;
 import com.project.phone.thred.ChatThread;
 import com.project.phone.util.Tools;
 
@@ -37,6 +38,12 @@ public class Connecting {
     }
     //query 처리 메서드
     public boolean query(String query, String parameter, String option){
+        if(!Phone.signal){
+            System.out.println("연결 상태를 확인해주세요.");
+            Tools.pause(1);
+            return false;
+        }
+
         try{
             if(option.equals("delete") || option.equals("insert")){
                 Statement statement = connection.createStatement();
@@ -55,6 +62,12 @@ public class Connecting {
         }
     }
     public boolean query(String query, String parameter, String parameter_two, String option){
+        if(!Phone.signal){
+            System.out.println("연결 상태를 확인해주세요.");
+            Tools.pause(1);
+            return false;
+        }
+
         try{
             if(option.equals("delete") || option.equals("insert")){
                 Statement statement = connection.createStatement();
@@ -75,6 +88,12 @@ public class Connecting {
         }
     }
     public boolean query(String query, String parameter, String parameter_two, String parameter_three, String option){
+        if(!Phone.signal){
+            System.out.println("연결 상태를 확인해주세요.");
+            Tools.pause(1);
+            return false;
+        }
+
         try{
             if(option.equals("delete") || option.equals("insert")){
                 Statement statement = connection.createStatement();
@@ -98,6 +117,13 @@ public class Connecting {
     }
 
     public boolean query(String query, String parameter, String parameter_two, String parameter_three, String parameter_four, String option){
+        if(!Phone.signal){
+            System.out.println("연결 상태를 확인해주세요.");
+            Tools.pause(1);
+            return false;
+        }
+
+
         try{
             if(option.equals("delete") || option.equals("insert")){
                 Statement statement = connection.createStatement();
@@ -124,6 +150,12 @@ public class Connecting {
 
     public boolean query(String query, String parameter, String parameter_two, String parameter_three,
                          String parameter_four, String parameter_five, String option){
+        if(!Phone.signal){
+            System.out.println("연결 상태를 확인해주세요.");
+            Tools.pause(1);
+            return false;
+        }
+
         try{
             if(option.equals("delete") || option.equals("insert")){
                 Statement statement = connection.createStatement();
@@ -152,6 +184,13 @@ public class Connecting {
 
     public boolean query(String query, String parameter, String parameter_two, String parameter_three,
                          String parameter_four, String parameter_five, String parameter_six, String option){
+        if(!Phone.signal){
+            System.out.println("연결 상태를 확인해주세요.");
+            Tools.pause(1);
+            return false;
+        }
+
+
         try{
             if(option.equals("delete") || option.equals("insert")){
                 Statement statement = connection.createStatement();
@@ -182,6 +221,13 @@ public class Connecting {
 
     public boolean query(String query, String parameter, String parameter_two, String parameter_three,
                          String parameter_four, String parameter_five, String parameter_six, String parameter_seven, String option){
+        if(!Phone.signal){
+            System.out.println("연결 상태를 확인해주세요.");
+            Tools.pause(1);
+            return false;
+        }
+
+
         try{
             if(option.equals("delete") || option.equals("insert")){
                 Statement statement = connection.createStatement();
@@ -215,6 +261,13 @@ public class Connecting {
     public boolean query(String query, String parameter, String parameter_two, String parameter_three,
                          String parameter_four, String parameter_five, String parameter_six, String parameter_seven,
                          String parameter_eight, String option){
+        if(!Phone.signal){
+            System.out.println("연결 상태를 확인해주세요.");
+            Tools.pause(1);
+            return false;
+        }
+
+
         try{
             if(option.equals("delete") || option.equals("insert")){
                 Statement statement = connection.createStatement();
@@ -250,6 +303,12 @@ public class Connecting {
     public boolean query(String query, String parameter, String parameter_two, String parameter_three,
                          String parameter_four, String parameter_five, String parameter_six, String parameter_seven,
                          String parameter_eight, String parameter_nine,String option){
+        if(!Phone.signal){
+            System.out.println("연결 상태를 확인해주세요.");
+            Tools.pause(1);
+            return false;
+        }
+
         try{
             if(option.equals("delete") || option.equals("insert")){
                 Statement statement = connection.createStatement();
@@ -287,6 +346,12 @@ public class Connecting {
     public boolean query(String query, String parameter, String parameter_two, String parameter_three,
                          String parameter_four, String parameter_five, String parameter_six, String parameter_seven,
                          String parameter_eight, String parameter_nine, String parameter_ten, String option){
+        if(!Phone.signal){
+            System.out.println("연결 상태를 확인해주세요.");
+            Tools.pause(1);
+            return false;
+        }
+
         try{
             if(option.equals("delete") || option.equals("insert")){
                 Statement statement = connection.createStatement();
@@ -332,7 +397,7 @@ public class Connecting {
     //query 처리 메서드
 
 
-    private void setConnection(Connection connection){
+    public void setConnection(Connection connection){
         this.connection = connection;
     }
 

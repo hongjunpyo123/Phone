@@ -51,8 +51,10 @@ public class CreateAccount {
             return 0;
         }
         else if(input.equals("yes")) {
-            connecting.query("INSERT INTO bank (name, number, account, cash) VALUES (?, ?, ?, ?)", Phone.name, Phone.number, this.accountNumber,
-                    "0","insert");
+            if(!connecting.query("INSERT INTO bank (name, number, account, cash) VALUES (?, ?, ?, ?)", Phone.name, Phone.number, this.accountNumber,
+                    "0","insert")){
+                return -1;
+            }
             System.out.println("계좌를 생성하였습니다");
             Tools.pause(1);
             Money.addMoney(this.accountNumber, 10000, "Event");

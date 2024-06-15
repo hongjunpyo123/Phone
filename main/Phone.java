@@ -7,6 +7,7 @@ import com.project.phone.hotel.Hotel;
 import com.project.phone.internet.Internet;
 import com.project.phone.message.Message;
 import com.project.phone.setting.Setting;
+import com.project.phone.thred.ConnectingThread;
 import com.project.phone.util.Tools;
 
 import java.time.LocalDate;
@@ -20,14 +21,17 @@ public class Phone {
     public static Bank bank = Bank.getInstance();
     public static LocalDate today = LocalDate.now();
     public static Setting setting = Setting.getInstance(fileIO);
+    public static ConnectingThread connectingThread = ConnectingThread.getInstance();
 
     public static String name;
     public static String number;
     public static String model;
 
-    private static boolean signal = false; //db연결 유무 초기값
-    private static String signal_text = "X"; //db연결 유무 표시 문자
+
+    public static boolean signal; //db연결 유무 초기값
+    public static String signal_text; //db연결 유무 표시 문자
     private static boolean re_start = false;
+    private static boolean checkThread = false; //현재 커넥팅 스레드를 시작했는지 유무
 
 
     private Phone() { }
@@ -77,6 +81,8 @@ public class Phone {
         }
     }
     public static void startPhone(){
+
+        //1초마다 db연결 재확인
         while(true){
             Tools.clear();
             System.out.printf("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
@@ -131,6 +137,7 @@ public class Phone {
             System.out.printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
             Tools.pause(3);
 
+
             while(!re_start) {
                 Phone.mainPhone(); //함수가 종료되었을 때 mainPhone이 다시 호출되게 하기 위함
             }
@@ -139,22 +146,20 @@ public class Phone {
         }
     }
 
+    private static void mainConnectingThread(){
+        if(!checkThread){
+            System.out.println("DB연결중...");
+            connectingThread.start();
+            checkThread = true;
+            Tools.pause(1);
+        }
+    }
+
     public static int mainPhone(){
         //설정 파일 생성
         fileIO.createFile("setting.txt");//setting파일 생성
         fileIO.FileRead("setting.txt"); //setting파일을 읽어온 후 변수에 저장
-
-        //db 연결 확인
-        if(connecting.DBconnect()){
-            signal = true;
-            signal_text = "○";
-        }else{
-            signal = false;
-            signal_text = "X";
-        }
-
-
-
+        mainConnectingThread();
 
         Scanner in = new Scanner(System.in);
         Tools.clear(); //화면 초기화
@@ -206,6 +211,9 @@ public class Phone {
         }
         else if(input.equals("game")){
 
+        }
+        else if(input.equals("1")){
+            connecting.DBconnect();
         }
 
 

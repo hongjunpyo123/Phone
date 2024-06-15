@@ -45,25 +45,38 @@ public class Message {
         input = this.in.nextLine();
         if(!Phone.getSignal()){
             System.out.println("연결 상태를 확인해주세요.");
-            Tools.pause(2);
+            Tools.pause(1);
             return 0;
         }
         if(input.equals("home")){
             return 0;
         }
         if(!ChatThread.optionThread("start")){
-            Tools.pause(2);
+            Tools.pause(1);
             return 0;
         }
         Tools.pause(2);
         while(true){
-            message = in.nextLine();
+
+            if(!Phone.getSignal()){
+                return 0;
+            }
+
+           if(Phone.signal){ //db에 성공적으로 연결되었을 때 입력값을 받음
+               message = in.nextLine();
+           }
+           else{
+               return 0;
+           }
+
             System.out.printf("=>:");
             if(message.equals("0") || message.equals("home")){
                 ChatThread.optionThread("stop");
                 break;
             }
-            connecting.query("INSERT INTO msg (send_name, send_number, message) VALUES (?, ?, ?)", Phone.name, input, message, "insert");
+            if(!connecting.query("INSERT INTO msg (send_name, send_number, message) VALUES (?, ?, ?)", Phone.name, input, message, "insert")){
+                return 0;
+            }
         }
 
 

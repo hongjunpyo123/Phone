@@ -22,7 +22,7 @@ public class ChatThread extends Thread {
     public static boolean optionThread(String option){
         ChatThread chatThread = new ChatThread();
         if(option.equals("start")){
-            if(!Connecting.getInstance().DBconnect()){
+            if(!Phone.signal){
                 return false;
             }
             ChatThread.setThread(false);
@@ -39,17 +39,20 @@ public class ChatThread extends Thread {
 
     public void run() {
         try {
-            connecting.query("SELECT * FROM msg WHERE send_number = ?", Phone.number, "select");
+            if(!connecting.query("SELECT * FROM msg WHERE send_number = ?", Phone.number, "select")){
+                Thread.currentThread().interrupt();
+                th_check = true;
+            }
             ResultSet resultSet1 = connecting.getQueryResult();
                     Tools.pause(1);
-            while (resultSet1.next()) {
+            while (resultSet1.next() && Thread.currentThread().isInterrupted()) {
                 String message = resultSet1.getString("message");
                 String send_name = resultSet1.getString("send_name");
                 System.out.print("\n" + "[" + send_name + "]" + " : " + message);
                 connecting.query("DELETE FROM msg WHERE send_number = ?", Phone.number, "delete");
             }
             System.out.printf("\n=>:");
-            while (!Thread.currentThread().isInterrupted()) {
+            while (!Thread.currentThread().isInterrupted() && Phone.signal) {
                 if (th_check == true) {
                     break;
                 }
