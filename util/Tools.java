@@ -3,6 +3,7 @@ package com.project.phone.util;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URI;
+import java.util.Scanner;
 
 public class Tools {
     private static Runtime runtime = Runtime.getRuntime();
@@ -20,6 +21,18 @@ public class Tools {
             Thread.sleep(second*1000);
         } catch (InterruptedException e) {
 //            System.out.println("pause메서드 Exeption 발생");
+        }
+    }
+
+    public static void flush(Scanner scanner){
+        try {
+            while (System.in.available() > 0) {
+                System.in.read();
+            }
+            scanner = new Scanner(System.in);
+        } catch (IOException e) {
+//            System.out.println("flush메서드 Exeption 발생");
+            throw new RuntimeException(e);
         }
     }
 

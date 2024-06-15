@@ -1,6 +1,7 @@
 package com.project.phone.game;
 
 import com.project.phone.bank.Bank;
+import com.project.phone.bank.CreateAccount;
 import com.project.phone.database.Connecting;
 import com.project.phone.main.Phone;
 import com.project.phone.util.Tools;
@@ -11,12 +12,12 @@ public class Game {
     Scanner in = new Scanner(System.in);
     private static Game game;
     private Connecting connecting = Connecting.getInstance(); //db연결 객체 생성
-    private Yabawe yabawe = Yabawe.getInstance();
     private Updown updown = Updown.getInstance();
     private Baseball baseball = Baseball.getInstance();
     private Coin coin = Coin.getInstance();
     private Bank bank = Bank.getInstance();
-
+    private CreateAccount createAccount = CreateAccount.getInstance(connecting);
+    private Yabawi yabawi = Yabawi.getInstance(coin, bank, createAccount, connecting); //의존성 주입
     private String input = null; //사용자 입력값 저장
 
     private Game() {}
@@ -27,7 +28,7 @@ public class Game {
         while(true) {
 
             Tools.clear(); //화면 초기화
-            Tools.flush(); //입력버퍼 초기화
+            Tools.flush(in); //입력버퍼 초기화
             input = null;
 
 
@@ -75,7 +76,7 @@ public class Game {
             } else if (input.equals("Updown") || input.equals("2")) {
                 updown.gameUpdown();
             } else if (input.equals("Yabawe") || input.equals("3")) {
-                yabawe.gameYabawe();
+                yabawi.gameYabawi();
             } else if (input.equals("0")) {
                 coin.gameCoin();
             } else {
