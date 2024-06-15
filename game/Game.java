@@ -13,7 +13,7 @@ public class Game {
     private Updown updown = Updown.getInstance();
     private Baseball baseball = Baseball.getInstance();
     private Coin coin = Coin.getInstance();
-
+    int global_coin;
     private String input = null; //사용자 입력값 저장
 
     private Game() {}

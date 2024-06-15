@@ -12,6 +12,8 @@ public class Yabawe {
         Random r = new Random();
         private static Yabawe yabawe;
         int cash = 1000;
+        private static Coin coin = Coin.getInstance();
+        private int intput;
 
         private Yabawe() {
         }
@@ -25,18 +27,27 @@ public class Yabawe {
                 }
                 return yabawe;
         }
+        public void doubleCoin(int twox){this.intput *= twox;}
 
         public void gameYabawe() {
                 Tools.clear();
                 Tools.flush();
                 String input = null; //사용자 입력값 저장
+                System.out.println("****************룰설명**************");
+                System.out.println("3개의 컵중 구슬이 든 컵을 맞추면 됩니다.");
+                System.out.println("맞춰서 승리할시 걸었던 돈의 두배를 얻게 됩니다.");
+                System.out.println("하지만 패배할시 걸었던 모든 돈을 잃게 됩니다.");
+                System.out.printf("현 코인은 %d(코인)입니다. 얼마를 거시겠습니까?",coin.getCoin());
+                int intput = in.nextInt();//걸은돈
                 String yabawe;
+
+
                 while (true){
                 while (true) {
                         System.out.printf("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
-                        System.out.printf("┃┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓┏━━━━┓┃\n");
-                        System.out.printf("┃┃                              [ 야바위게임 ]                             ┃┃back┃┃\n");
-                        System.out.printf("┃┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫┗━━━━┛┃\n");
+                        System.out.printf("┃┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓      ┃\n");
+                        System.out.printf("┃┃                              [ 야바위게임 ]                             ┃      ┃\n");
+                        System.out.printf("┃┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫      ┃\n");
                         System.out.printf("┃┃                                                                       ┃      ┃\n");
                         System.out.printf("┃┃                                                                       ┃      ┃\n");
                         System.out.printf("┃┃       ┏━━━━━━━━━┓            ┏━━━━━━━━━┓            ┏━━━━━━━━━┓       ┃      ┃\n");
@@ -57,9 +68,9 @@ public class Yabawe {
                         Tools.clear();
                         if (num == 1 && 1 == rd) {
                                 System.out.printf("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
-                                System.out.printf("┃┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓┏━━━━┓┃\n");
-                                System.out.printf("┃┃                              [ 야바위게임 ]                             ┃┃back┃┃\n");
-                                System.out.printf("┃┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫┗━━━━┛┃\n");
+                                System.out.printf("┃┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓      ┃\n");
+                                System.out.printf("┃┃                              [ 야바위게임 ]                             ┃      ┃\n");
+                                System.out.printf("┃┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫      ┃\n");
                                 System.out.printf("┃┃       ┏━━━━━━━━━┓                                                     ┃      ┃\n");
                                 System.out.printf("┃┃       ┃         ┃                                                     ┃      ┃\n");
                                 System.out.printf("┃┃       ┃         ┃            ┏━━━━━━━━━┓            ┏━━━━━━━━━┓       ┃      ┃\n");
@@ -73,8 +84,11 @@ public class Yabawe {
                                 System.out.printf("┃┃                                                                       ┃      ┃\n");
                                 System.out.printf("┃┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛      ┃\n");
                                 System.out.printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
-                                cash += 1000;
-                                System.out.println("승리했습니다. +1000캐시");
+                                System.out.println("승리했습니다.계속하시겠습니까?(yes/no)");
+                                input = in.nextLine();
+                                if(input.equals("yes")){
+                                        doubleCoin(2);
+                                }
                                 Tools.pause(2);
 
                         }
@@ -82,9 +96,9 @@ public class Yabawe {
 
                         if (num == 1 && 1 != rd) {
                                 System.out.printf("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
-                                System.out.printf("┃┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓┏━━━━┓┃\n");
-                                System.out.printf("┃┃                              [ 야바위게임 ]                             ┃┃back┃┃\n");
-                                System.out.printf("┃┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫┗━━━━┛┃\n");
+                                System.out.printf("┃┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓      ┃\n");
+                                System.out.printf("┃┃                              [ Yabawe ]                               ┃      ┃\n");
+                                System.out.printf("┃┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫      ┃\n");
                                 System.out.printf("┃┃       ┏━━━━━━━━━┓                                                     ┃      ┃\n");
                                 System.out.printf("┃┃       ┃         ┃                                                     ┃      ┃\n");
                                 System.out.printf("┃┃       ┃         ┃            ┏━━━━━━━━━┓            ┏━━━━━━━━━┓       ┃      ┃\n");
@@ -98,17 +112,19 @@ public class Yabawe {
                                 System.out.printf("┃┃                                                                       ┃      ┃\n");
                                 System.out.printf("┃┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛      ┃\n");
                                 System.out.printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
-                                cash -= 1000;
-                                System.out.println("패배했습니다. -1000캐시");
+                                System.out.println("패배했습니다.");
+                                intput = 0;
                                 Tools.pause(2);
+                                break;
+
 
                         }
                         Tools.clear();
                         if (num == 2 && 2 == rd) {
                                 System.out.printf("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
-                                System.out.printf("┃┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓┏━━━━┓┃\n");
-                                System.out.printf("┃┃                              [ 야바위게임 ]                             ┃┃back┃┃\n");
-                                System.out.printf("┃┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫┗━━━━┛┃\n");
+                                System.out.printf("┃┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓      ┃\n");
+                                System.out.printf("┃┃                              [ 야바위게임 ]                             ┃      ┃\n");
+                                System.out.printf("┃┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫      ┃\n");
                                 System.out.printf("┃┃                              ┏━━━━━━━━━┓                              ┃      ┃\n");
                                 System.out.printf("┃┃                              ┃         ┃                              ┃      ┃\n");
                                 System.out.printf("┃┃       ┏━━━━━━━━━┓            ┃         ┃            ┏━━━━━━━━━┓       ┃      ┃\n");
@@ -122,17 +138,20 @@ public class Yabawe {
                                 System.out.printf("┃┃                                                                       ┃      ┃\n");
                                 System.out.printf("┃┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛      ┃\n");
                                 System.out.printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
-                                cash += 1000;
-                                System.out.println("승리했습니다. +1000캐시");
+                                System.out.println("승리했습니다.계속하시겠습니까?(yes/no)");
+                                input = in.nextLine();
+                                if(input.equals("yes")){
+                                        doubleCoin(2);
+                                }
                                 Tools.pause(2);
 
                         }
                         Tools.clear();
                         if (num == 2 && 2 != rd) {
                                 System.out.printf("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
-                                System.out.printf("┃┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓┏━━━━┓┃\n");
-                                System.out.printf("┃┃                              [ 야바위게임 ]                             ┃┃back┃┃\n");
-                                System.out.printf("┃┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫┗━━━━┛┃\n");
+                                System.out.printf("┃┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓      ┃\n");
+                                System.out.printf("┃┃                              [ 야바위게임 ]                             ┃      ┃\n");
+                                System.out.printf("┃┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫      ┃\n");
                                 System.out.printf("┃┃                              ┏━━━━━━━━━┓                              ┃      ┃\n");
                                 System.out.printf("┃┃                              ┃         ┃                              ┃      ┃\n");
                                 System.out.printf("┃┃       ┏━━━━━━━━━┓            ┃         ┃            ┏━━━━━━━━━┓       ┃      ┃\n");
@@ -146,17 +165,19 @@ public class Yabawe {
                                 System.out.printf("┃┃                                                                       ┃      ┃\n");
                                 System.out.printf("┃┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛      ┃\n");
                                 System.out.printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
-                                cash -= 1000;
-                                System.out.println("패배했습니다. -1000캐시");
+                                System.out.println("패배했습니다.");
+                                intput = 0;
                                 Tools.pause(2);
+                                break;
+
 
                         }
                         Tools.clear();
                         if (num == 3 && 3 == rd) {
                                 System.out.printf("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
-                                System.out.printf("┃┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓┏━━━━┓┃\n");
-                                System.out.printf("┃┃                              [ 야바위게임 ]                             ┃┃back┃┃\n");
-                                System.out.printf("┃┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫┗━━━━┛┃\n");
+                                System.out.printf("┃┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓      ┃\n");
+                                System.out.printf("┃┃                              [ 야바위게임 ]                             ┃      ┃\n");
+                                System.out.printf("┃┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫      ┃\n");
                                 System.out.printf("┃┃                                                     ┏━━━━━━━━━┓       ┃      ┃\n");
                                 System.out.printf("┃┃                                                     ┃         ┃       ┃      ┃\n");
                                 System.out.printf("┃┃       ┏━━━━━━━━━┓            ┏━━━━━━━━━┓            ┃         ┃       ┃      ┃\n");
@@ -170,17 +191,24 @@ public class Yabawe {
                                 System.out.printf("┃┃                                                                       ┃      ┃\n");
                                 System.out.printf("┃┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛      ┃\n");
                                 System.out.printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
-                                cash += 1000;
-                                System.out.println("승리했습니다. +1000캐시");
+                                System.out.println("승리했습니다.계속하시겠습니까?(yes/no)");
+                                input = in.nextLine();
                                 Tools.pause(2);
+                                if(input.equals("yes")){
+                                        doubleCoin(2);
+                                }
+                                if(input.equals("no")){
+                                        break;
+                                }
+
 
                         }
                         Tools.clear();
                         if (num == 3 && 3 != rd) {
                                 System.out.printf("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
-                                System.out.printf("┃┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓┏━━━━┓┃\n");
-                                System.out.printf("┃┃                              [ 야바위게임 ]                             ┃┃back┃┃\n");
-                                System.out.printf("┃┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫┗━━━━┛┃\n");
+                                System.out.printf("┃┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓      ┃\n");
+                                System.out.printf("┃┃                              [ 야바위게임 ]                             ┃      ┃\n");
+                                System.out.printf("┃┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫      ┃\n");
                                 System.out.printf("┃┃                                                     ┏━━━━━━━━━┓       ┃      ┃\n");
                                 System.out.printf("┃┃                                                     ┃         ┃       ┃      ┃\n");
                                 System.out.printf("┃┃       ┏━━━━━━━━━┓            ┏━━━━━━━━━┓            ┃         ┃       ┃      ┃\n");
@@ -194,9 +222,11 @@ public class Yabawe {
                                 System.out.printf("┃┃                                                                       ┃      ┃\n");
                                 System.out.printf("┃┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛      ┃\n");
                                 System.out.printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
-                                cash -= 1000;
-                                System.out.println("패배했습니다. -1000캐시");
+                                System.out.println("패배했습니다.");
+                                intput = 0;
                                 Tools.pause(2);
+                                break;
+
 
                         }
                         Tools.clear();
@@ -207,7 +237,9 @@ public class Yabawe {
                                 System.out.printf("남은 캐시: %d\n", cash);
                                 System.out.println("게임을 종료합니다.");
                                 return;
+
                         }
+
                         Tools.clear();
                 }
 

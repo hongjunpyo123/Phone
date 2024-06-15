@@ -12,6 +12,7 @@ public class Updown {
     private static Updown updown;
     Random r = new Random();
     int cash = 1000;
+    private static Coin coin = Coin.getInstance();
 
     private Updown() {
     }
@@ -98,7 +99,8 @@ public class Updown {
                             System.out.printf("┃┃                                                                       ┃      ┃\n");
                             System.out.printf("┃┃                                                                       ┃      ┃\n");
                             System.out.printf("┃┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛      ┃\n");
-                            System.out.printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");;
+                            System.out.printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
+                            ;
                         } else if (num < rd) {
                             Tools.clear();
                             System.out.printf("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
@@ -133,7 +135,7 @@ public class Updown {
                     }
 
                     if (!correct) {
-                        System.out.println("정답은"+rd+"입니다!");
+                        System.out.println("정답은" + rd + "입니다!");
                         System.out.println("8번 안에 맞추지 못했습니다. -1000캐시!");
                         cash -= 1000;
                     }
@@ -143,16 +145,7 @@ public class Updown {
                     rg = in.next();
                 } while (rg.equalsIgnoreCase("Yes"));
                 break;
-            case 2:
-                System.out.println("현재 캐시는 " + cash + " 입니다.");
-                break;
-            case 3:
-                System.out.println("게임을 종료합니다.");
-                in.close();
-                return;
-            default:
-                System.out.println("잘못된 입력입니다. 다시 선택하세요.");
-                break;
+
         }
     }
 }

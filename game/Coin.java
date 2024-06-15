@@ -90,6 +90,7 @@ public class Coin {
         this.gameCoin -= minus;
     }
 
+
     public static Coin getInstance(){
         if(coin == null){
             return coin = new Coin();
