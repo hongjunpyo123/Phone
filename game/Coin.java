@@ -28,7 +28,7 @@ public class Coin {
 
         System.out.printf("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
         System.out.printf("┃┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓      ┃\n");
-        System.out.printf("┃┃                             [  GameCoin  ]                            ┃      ┃\n");
+        System.out.printf("┃┃                            [  Coin Shop  ]                            ┃      ┃\n");
         System.out.printf("┃┃                                                                       ┃      ┃\n");
         System.out.printf("┃┃                                                                       ┃      ┃\n");
         System.out.printf("┃┃                  my game coin : %d(coin)", this.gameCoin);
@@ -47,19 +47,20 @@ public class Coin {
         System.out.printf("┃      ┃\n");
         System.out.printf("┃┃                                                                       ┃┏━━━━┓┃\n");
         System.out.printf("┃┃                                                                       ┃┃home┃┃\n");
-        System.out.printf("┃┃                                                                       ┃┗━━━━┛┃\n");
-        System.out.printf("┃┃             [1]                   [2]                    [3]          ┃      ┃\n");
-        System.out.printf("┃┃         코인 구매하기            돈 환전하기            메인메뉴돌아가기     ┃      ┃\n");
-        System.out.printf("┃┃                                                                       ┃      ┃\n");
+        System.out.printf("┃┃       ┏━━━━━━━━━━━━━┓          ┏━━━━━━━━━┓           ┏━━━━━━━━━┓      ┃┗━━━━┛┃\n");
+        System.out.printf("┃┃       ┃     [1]     ┃          ┃   [2]   ┃           ┃   [3]   ┃      ┃      ┃\n");
+        System.out.printf("┃┃         코인 구매하기              환전하기                메인메뉴        ┃      ┃\n");
+        System.out.printf("┃┃       ┗━━━━━━━━━━━━━┛          ┗━━━━━━━━━┛           ┗━━━━━━━━━┛      ┃      ┃\n");
         System.out.printf("┃┃                                                                       ┃      ┃\n");
         System.out.printf("┃┃                                                                       ┃      ┃\n");
         System.out.printf("┃┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛      ┃\n");
         System.out.printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
         System.out.print("=>:");
-        input = this.in.nextLine();
+        input = this.in.next();
         if (input.equals("home")) {
             return 0;
-        } else if (input.equals("코인 구매하기") || input.equals("1")) {
+        }
+        else if (input.equals("코인") || input.equals("1")) {
             System.out.printf("현 통장 잔고는 %,d(won) 입니다.\n", Money.getCash());
             System.out.println("10원에 코인 1개 입니다. 몇개 구입하시겠습니까?");
             System.out.print("=>:");
@@ -73,12 +74,16 @@ public class Coin {
                     Tools.pause(1);
                     return 0;
                 }else{
-                    Money.subMoney(createAccount.getAccountNumber(), intput*10, "Coin");
+                    if(!Money.subMoney(createAccount.getAccountNumber(), intput*10, "Coin")){
+                        System.out.println("환전에 실패하였습니다.");
+                        Tools.pause(1);
+                        return 0;
+                    }
                     System.out.println("구매완료되었습니다");
                     Tools.pause(1);
                     this.gameCoin += intput;
                     System.out.println("남은 계좌 잔액:" + Money.getCash() + "/ 코인:" + this.gameCoin);
-                    Tools.pause(1);
+                    Tools.pause(2);
                     return 0;
                 }
             }
@@ -87,6 +92,31 @@ public class Coin {
                 Tools.pause(1);
                 return 0;
             }
+        }
+        else if(input.equals("환전하기") || input.equals("2")){
+            System.out.printf("현 보유중인 코인은 %d(coin) 입니다. 몇개 환전하시겠습니까?\n", this.gameCoin);
+            System.out.print("=>:");
+            intput = this.in.nextInt();
+            System.out.printf("환전 코인 : %d(coin)(%,d원)\n", intput, intput*10);
+            System.out.printf("환전하시겠습니까?(yes/no):");
+            input = this.in.next();
+
+            if(this.gameCoin < intput){
+                System.out.println("코인이 부족합니다.");
+                Tools.pause(1);
+                return 0;
+            }
+
+            if(!Money.addMoney(createAccount.getAccountNumber(), intput*10, "Coin")){
+                System.out.println("환전에 실패하였습니다.");
+                Tools.pause(1);
+                return 0;
+            }
+
+            this.gameCoin -= intput;
+            System.out.println("환전완료되었습니다.");
+            Tools.pause(1);
+            return 0;
         }
 
 

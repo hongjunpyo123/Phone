@@ -1,6 +1,8 @@
 package com.project.phone.game;
 
+import com.project.phone.bank.Bank;
 import com.project.phone.database.Connecting;
+import com.project.phone.main.Phone;
 import com.project.phone.util.Tools;
 
 import java.util.Scanner;
@@ -13,6 +15,7 @@ public class Game {
     private Updown updown = Updown.getInstance();
     private Baseball baseball = Baseball.getInstance();
     private Coin coin = Coin.getInstance();
+    private Bank bank = Bank.getInstance();
 
     private String input = null; //사용자 입력값 저장
 
@@ -25,6 +28,7 @@ public class Game {
 
             Tools.clear(); //화면 초기화
             Tools.flush(); //입력버퍼 초기화
+            input = null;
 
 
             System.out.printf("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
@@ -45,11 +49,25 @@ public class Game {
             System.out.printf("┃┃                                                                       ┃      ┃\n");
             System.out.printf("┃┃                                                                       ┃      ┃\n");
             System.out.printf("┃┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫      ┃\n");
-            System.out.printf("┃┃ [0] : BUY GAME COIN                                                   ┃      ┃\n");
+            System.out.printf("┃┃ [0] : Coin-Shop                                                       ┃      ┃\n");
             System.out.printf("┃┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛      ┃\n");
             System.out.printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
             System.out.print("=>:");
             input = this.in.next();
+
+            if(!Phone.signal){
+                System.out.println("연결 상태를 확인해주세요.");
+                Tools.pause(1);
+                return 0;
+            }
+
+            if(!bank.checkAccount()){
+                System.out.print("보유중인 계좌가 없습니다.\n [bank] 에서 계좌를 만드세요. \n");
+                Tools.pause(2);
+                return 0;
+            }
+
+
             if (input.equals("home")) {
                 return 0;
             } else if (input.equals("Baseball") || input.equals("1")) {

@@ -13,6 +13,9 @@ public class Money {
     private Money(){}
 
     public static int getCash(){
+        if(!Phone.signal){
+            System.out.println("연결 상태를 확인해주세요.");
+        }
         connecting.query("SELECT * FROM bank WHERE account = ?", createAccount.getAccountNumber(), "select");
         try{
             if (connecting.getQueryResult().next()){
@@ -27,6 +30,10 @@ public class Money {
     }
 
     public static boolean addMoney(String account, int cash, String name){
+        if(!Phone.signal){
+            System.out.println("연결 상태를 확인해주세요.");
+            return false;
+        }
         if(connecting.query("UPDATE bank SET cash = cash + ? WHERE account = ?", Integer.toString(cash), account, "insert")){
             connecting.query("INSERT INTO transfer (account, cash, sendName, type, today) VALUES (?, ?, ?, ?, ?)",
                     account,
@@ -40,6 +47,10 @@ public class Money {
         }
     }
     public static boolean subMoney(String account, int cash, String name){
+        if(!Phone.signal){
+            System.out.println("연결 상태를 확인해주세요.");
+            return false;
+        }
         if(connecting.query("UPDATE bank SET cash = cash - ? WHERE account = ?", Integer.toString(cash), account, "insert")){
             connecting.query("INSERT INTO transfer (account, cash, sendName, type, today) VALUES (?, ?, ?, ?, ?)",
                     account,
