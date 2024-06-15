@@ -1,6 +1,9 @@
 package com.project.phone.main;
 
 import com.project.phone.database.DBsetting;
+import com.project.phone.game.Game;
+import com.project.phone.game.Updown;
+import com.project.phone.game.Yabawe;
 import com.project.phone.internet.Internet;
 import com.project.phone.message.Message;
 import com.project.phone.util.Tools;
@@ -11,6 +14,8 @@ import java.util.Scanner;
 public class Phone {
     public static Internet internet = Internet.getInstance();
     public static Message message = Message.getInstance();
+    public static Game game = Game.getInstance();
+
     //의존성 주입 필요
     public static String name;
     public static String number;
@@ -25,6 +30,7 @@ public class Phone {
         String model;
         String name;
         String number;
+        game.phoneGame();
 
         Scanner in = new Scanner(System.in);
         while (true) {
@@ -129,9 +135,9 @@ public class Phone {
 
         System.out.printf("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
         System.out.printf("┃┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓      ┃\n");
-        System.out.printf("┃┃ ┏━━━━┓     ┏━━━━┓     ┏━━━━┓                              signal: (%s) ┃      ┃\n", signal);
-        System.out.printf("┃┃internet     msg       hotel                                           ┃      ┃\n");
-        System.out.printf("┃┃ ┗━━━━┛     ┗━━━━┛     ┗━━━━┛                                          ┃      ┃\n");
+        System.out.printf("┃┃ ┏━━━━┓     ┏━━━━┓     ┏━━━━┓     ┏━━━━┓                   signal: (%s) ┃      ┃\n", signal);
+        System.out.printf("┃┃internet     msg       hotel       game                                ┃      ┃\n");
+        System.out.printf("┃┃ ┗━━━━┛     ┗━━━━┛     ┗━━━━┛     ┗━━━━┛                               ┃      ┃\n");
         System.out.printf("┃┃                                                                       ┃      ┃\n");
         System.out.printf("┃┃                                                                       ┃      ┃\n");
         System.out.printf("┃┃                                                                       ┃┏━━━━┓┃\n");
@@ -154,6 +160,9 @@ public class Phone {
         }
         else if(input.equals("msg")){
             message.phoneMessage();
+        }
+        else if(input.equals("game")){
+            game.phoneGame();
         }
 
 
