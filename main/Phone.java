@@ -3,6 +3,7 @@ package com.project.phone.main;
 import com.project.phone.bank.Bank;
 import com.project.phone.database.Connecting;
 import com.project.phone.file.FileIO;
+import com.project.phone.game.Game;
 import com.project.phone.hotel.Hotel;
 import com.project.phone.internet.Internet;
 import com.project.phone.message.Message;
@@ -22,6 +23,7 @@ public class Phone {
     public static LocalDate today = LocalDate.now();
     public static Setting setting = Setting.getInstance(fileIO);
     public static ConnectingThread connectingThread = ConnectingThread.getInstance();
+    public static Game game = Game.getInstance();
 
     public static String name;
     public static String number;
@@ -210,7 +212,7 @@ public class Phone {
             bank.phoneBank();
         }
         else if(input.equals("game")){
-
+            game.phoneGame();
         }
         else if(input.equals("1")){
             connecting.DBconnect();

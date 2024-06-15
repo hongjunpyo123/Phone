@@ -8,64 +8,63 @@ import java.util.Scanner;
 public class Game {
     Scanner in = new Scanner(System.in);
     private static Game game;
-    Connecting connecting = Connecting.getInstance(); //db연결 객체 생성
-    public static Yabawe gameYabawe = Yabawe.getInstance();
-    public static Updown gameUpdown = Updown.getInstance();
-    public static Baseball gameBaseball = Baseball.getInstance();
-    public static Cash gameCash = Cash.getInstance();
-    int cash =1000;
+    private Connecting connecting = Connecting.getInstance(); //db연결 객체 생성
+    private Yabawe yabawe = Yabawe.getInstance();
+    private Updown updown = Updown.getInstance();
+    private Baseball baseball = Baseball.getInstance();
+    private Coin coin = Coin.getInstance();
+
+    private String input = null; //사용자 입력값 저장
+
     private Game() {}
 
 
 
     public int phoneGame(){
+        while(true) {
 
-        Tools.clear(); //화면 초기화
-        Tools.flush(); //입력버퍼 초기화
-        String input = null; //사용자 입력값 저장
+            Tools.clear(); //화면 초기화
+            Tools.flush(); //입력버퍼 초기화
 
 
-        System.out.printf("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
-        System.out.printf("┃┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓      ┃\n");
-        System.out.printf("┃┃                               [  Game  ]             cash:"+cash+"        ┃      ┃\n");
-        System.out.printf("┃┃                                                                       ┃      ┃\n");
-        System.out.printf("┃┃                                                                       ┃      ┃\n");
-        System.out.printf("┃┃                                                                       ┃      ┃\n");
-        System.out.printf("┃┃        ┏━━━━━━━━━━━┓         ┏━━━━━━━━━━━┓         ┏━━━━━━━━━━━┓      ┃      ┃\n");
-        System.out.printf("┃┃        ┃    [1]    ┃         ┃    [2]    ┃         ┃    [3]    ┃      ┃┏━━━━┓┃\n");
-        System.out.printf("┃┃        ┃  Baseball ┃         ┃   Updown  ┃         ┃   Yabawe  ┃      ┃┃home┃┃\n");
-        System.out.printf("┃┃        ┗━━━━━━━━━━━┛         ┗━━━━━━━━━━━┛         ┗━━━━━━━━━━━┛      ┃┗━━━━┛┃\n");
-        System.out.printf("┃┃                                                                       ┃      ┃\n");
-        System.out.printf("┃┃                                                                       ┃      ┃\n");
-        System.out.printf("┃┃                                                                       ┃      ┃\n");
-        System.out.printf("┃┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫      ┃\n");
-        System.out.printf("┃┃                        [0]캐시 구매하기                                 ┃      ┃\n");
-        System.out.printf("┃┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛      ┃\n");
-        System.out.printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
-        System.out.println("게임을 선택하세요.");
-        input = this.in.next();
-        if(input.equals("home")){
-            Tools.pause(2);
-            return 0;
+            System.out.printf("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
+            System.out.printf("┃┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓      ┃\n");
+            System.out.printf("┃┃                               [  Game  ]           game coin : %d", coin.getCoin());
+            for (int i = 0; i < 7 - Tools.intLength(coin.getCoin()); i++) {
+                System.out.printf(" ");
+            }
+            System.out.printf("┃      ┃\n");
+            System.out.printf("┃┃                                                                       ┃      ┃\n");
+            System.out.printf("┃┃                                                                       ┃      ┃\n");
+            System.out.printf("┃┃                                                                       ┃      ┃\n");
+            System.out.printf("┃┃        ┏━━━━━━━━━━━┓         ┏━━━━━━━━━━━┓         ┏━━━━━━━━━━━┓      ┃      ┃\n");
+            System.out.printf("┃┃        ┃    [1]    ┃         ┃    [2]    ┃         ┃    [3]    ┃      ┃┏━━━━┓┃\n");
+            System.out.printf("┃┃        ┃  Baseball ┃         ┃   Updown  ┃         ┃   Yabawe  ┃      ┃┃home┃┃\n");
+            System.out.printf("┃┃        ┗━━━━━━━━━━━┛         ┗━━━━━━━━━━━┛         ┗━━━━━━━━━━━┛      ┃┗━━━━┛┃\n");
+            System.out.printf("┃┃                                                                       ┃      ┃\n");
+            System.out.printf("┃┃                                                                       ┃      ┃\n");
+            System.out.printf("┃┃                                                                       ┃      ┃\n");
+            System.out.printf("┃┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫      ┃\n");
+            System.out.printf("┃┃ [0] : BUY GAME COIN                                                   ┃      ┃\n");
+            System.out.printf("┃┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛      ┃\n");
+            System.out.printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
+            System.out.print("=>:");
+            input = this.in.next();
+            if (input.equals("home")) {
+                return 0;
+            } else if (input.equals("Baseball") || input.equals("1")) {
+                baseball.gameBaseball();
+            } else if (input.equals("Updown") || input.equals("2")) {
+                updown.gameUpdown();
+            } else if (input.equals("Yabawe") || input.equals("3")) {
+                yabawe.gameYabawe();
+            } else if (input.equals("0")) {
+                coin.gameCoin();
+            } else {
+                System.out.println("정상적인 값이 아닙니다. \n([0] or [1] or [2] or [3] or [home]) ");
+                Tools.pause(1);
+            }
         }
-        else if(input.equals("Baseball")||input.equals("1")){
-            gameBaseball.gameBaseball();
-        }
-        else if(input.equals("Updown")||input.equals("2")){
-            gameUpdown.gameUpdown();
-        }
-        else if(input.equals("Yabawe")||input.equals("3")){
-            gameYabawe.gameYabawe();
-        }
-        else if(input.equals("캐시 구매하기")||input.equals("0")){
-            gameCash.gameCash();
-        }
-        else{
-            System.out.println("정상적인 값이 아닙니다. \n([1] or [2] or [3] or [home]) ");
-            Tools.pause(3);
-        }
-
-        return 0;
     }
 
     public static Game getInstance(){
