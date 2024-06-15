@@ -60,6 +60,7 @@ public class Yabawi {
             System.out.println("[판당 100코인 소모]");
             System.out.println("[승리 시 2배 지급]");
             System.out.println("[코인 보유 수 : "+coin.getCoin()+"(coin)]");
+            System.out.println("------------------");
             System.out.print("시작하려면 0번을 누르세요!:");
             input = in.next();
 
@@ -92,13 +93,13 @@ public class Yabawi {
             System.out.printf("┃┃       ┃         ┃            ┃         ┃            ┃         ┃       ┃┗━━━━┛┃\n");
             System.out.printf("┃┃       ┗━━━━━━━━━┛            ┗━━━━━━━━━┛            ┗━━━━━━━━━┛       ┃      ┃\n");
             System.out.printf("┃┃                                                                       ┃      ┃\n");
-            System.out.printf("┃┃           %s                       %s                      %s            ┃      ┃\n", yabawiArray[0], yabawiArray[1], yabawiArray[2]);
+            System.out.printf("┃┃            %s                      %s                      %s            ┃      ┃\n", yabawiArray[0], yabawiArray[1], yabawiArray[2]);
             System.out.printf("┃┃       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━       ┃      ┃\n");
             System.out.printf("┃┃                                                                       ┃      ┃\n");
             System.out.printf("┃┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛      ┃\n");
             System.out.printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
 
-            Tools.pause(3);
+            Tools.pause(2);
             Tools.flush();
             Tools.clear();
 
@@ -148,7 +149,27 @@ public class Yabawi {
                 System.out.printf("┃┃                                                                       ┃      ┃\n");
                 System.out.printf("┃┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛      ┃\n");
                 System.out.printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
+
                 Tools.pause(1);
+                Tools.clear();
+
+                System.out.printf("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
+                System.out.printf("┃┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓      ┃\n");
+                System.out.printf("┃┃                           [ Yabawi Game ]                             ┃      ┃\n");
+                System.out.printf("┃┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫      ┃\n");
+                System.out.printf("┃┃       ┏━━━━━━━━━┓            ┏━━━━━━━━━┓            ┏━━━━━━━━━┓       ┃      ┃\n");
+                System.out.printf("┃┃       ┃■■■■■■■■■┃            ┃■■■■■■■■■┃            ┃■■■■■■■■■┃       ┃      ┃\n");
+                System.out.printf("┃┃       ┃    1    ┃            ┃    2    ┃            ┃    3    ┃       ┃      ┃\n");
+                System.out.printf("┃┃       ┃         ┃            ┃         ┃            ┃         ┃       ┃┏━━━━┓┃\n");
+                System.out.printf("┃┃       ┃         ┃            ┃         ┃            ┃         ┃       ┃┃back┃┃\n");
+                System.out.printf("┃┃       ┃         ┃            ┃         ┃            ┃         ┃       ┃┗━━━━┛┃\n");
+                System.out.printf("┃┃       ┗━━━━━━━━━┛            ┗━━━━━━━━━┛            ┗━━━━━━━━━┛       ┃      ┃\n");
+                System.out.printf("┃┃                                                                       ┃      ┃\n");
+                System.out.printf("┃┃            %s                      %s                      %s            ┃      ┃\n", yabawiArray[0], yabawiArray[1], yabawiArray[2]);
+                System.out.printf("┃┃       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━       ┃      ┃\n");
+                System.out.printf("┃┃                                                                       ┃      ┃\n");
+                System.out.printf("┃┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛      ┃\n");
+                System.out.printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
                 if(Integer.parseInt(input)-1 == yabawiNumber){
                     System.out.println("축하드립니다!");
                     Tools.pause(1);
@@ -157,7 +178,7 @@ public class Yabawi {
                     Tools.pause(2);
                 }else{
                     System.out.println("꽝! 다음 기회에..");
-                    Tools.pause(1);
+                    Tools.pause(2);
                 }
 
             }
@@ -184,7 +205,28 @@ public class Yabawi {
                 System.out.printf("┃┃                                                                       ┃      ┃\n");
                 System.out.printf("┃┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛      ┃\n");
                 System.out.printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
+
                 Tools.pause(1);
+                Tools.clear();
+
+                System.out.printf("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
+                System.out.printf("┃┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓      ┃\n");
+                System.out.printf("┃┃                           [ Yabawi Game ]                             ┃      ┃\n");
+                System.out.printf("┃┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫      ┃\n");
+                System.out.printf("┃┃       ┏━━━━━━━━━┓            ┏━━━━━━━━━┓            ┏━━━━━━━━━┓       ┃      ┃\n");
+                System.out.printf("┃┃       ┃■■■■■■■■■┃            ┃■■■■■■■■■┃            ┃■■■■■■■■■┃       ┃      ┃\n");
+                System.out.printf("┃┃       ┃    1    ┃            ┃    2    ┃            ┃    3    ┃       ┃      ┃\n");
+                System.out.printf("┃┃       ┃         ┃            ┃         ┃            ┃         ┃       ┃┏━━━━┓┃\n");
+                System.out.printf("┃┃       ┃         ┃            ┃         ┃            ┃         ┃       ┃┃back┃┃\n");
+                System.out.printf("┃┃       ┃         ┃            ┃         ┃            ┃         ┃       ┃┗━━━━┛┃\n");
+                System.out.printf("┃┃       ┗━━━━━━━━━┛            ┗━━━━━━━━━┛            ┗━━━━━━━━━┛       ┃      ┃\n");
+                System.out.printf("┃┃                                                                       ┃      ┃\n");
+                System.out.printf("┃┃            %s                      %s                      %s            ┃      ┃\n", yabawiArray[0], yabawiArray[1], yabawiArray[2]);
+                System.out.printf("┃┃       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━       ┃      ┃\n");
+                System.out.printf("┃┃                                                                       ┃      ┃\n");
+                System.out.printf("┃┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛      ┃\n");
+                System.out.printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
+
                 if(Integer.parseInt(input)-1 == yabawiNumber){
                     System.out.println("축하드립니다!");
                     Tools.pause(1);
@@ -193,7 +235,7 @@ public class Yabawi {
                     Tools.pause(2);
                 }else{
                     System.out.println("꽝! 다음 기회에..");
-                    Tools.pause(1);
+                    Tools.pause(2);
                 }
 
 
@@ -221,7 +263,27 @@ public class Yabawi {
                 System.out.printf("┃┃                                                                       ┃      ┃\n");
                 System.out.printf("┃┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛      ┃\n");
                 System.out.printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
+
                 Tools.pause(1);
+                Tools.clear();
+
+                System.out.printf("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
+                System.out.printf("┃┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓      ┃\n");
+                System.out.printf("┃┃                           [ Yabawi Game ]                             ┃      ┃\n");
+                System.out.printf("┃┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫      ┃\n");
+                System.out.printf("┃┃       ┏━━━━━━━━━┓            ┏━━━━━━━━━┓            ┏━━━━━━━━━┓       ┃      ┃\n");
+                System.out.printf("┃┃       ┃■■■■■■■■■┃            ┃■■■■■■■■■┃            ┃■■■■■■■■■┃       ┃      ┃\n");
+                System.out.printf("┃┃       ┃    1    ┃            ┃    2    ┃            ┃    3    ┃       ┃      ┃\n");
+                System.out.printf("┃┃       ┃         ┃            ┃         ┃            ┃         ┃       ┃┏━━━━┓┃\n");
+                System.out.printf("┃┃       ┃         ┃            ┃         ┃            ┃         ┃       ┃┃back┃┃\n");
+                System.out.printf("┃┃       ┃         ┃            ┃         ┃            ┃         ┃       ┃┗━━━━┛┃\n");
+                System.out.printf("┃┃       ┗━━━━━━━━━┛            ┗━━━━━━━━━┛            ┗━━━━━━━━━┛       ┃      ┃\n");
+                System.out.printf("┃┃                                                                       ┃      ┃\n");
+                System.out.printf("┃┃            %s                      %s                      %s            ┃      ┃\n", yabawiArray[0], yabawiArray[1], yabawiArray[2]);
+                System.out.printf("┃┃       ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━       ┃      ┃\n");
+                System.out.printf("┃┃                                                                       ┃      ┃\n");
+                System.out.printf("┃┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛      ┃\n");
+                System.out.printf("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
                 if(Integer.parseInt(input)-1 == yabawiNumber){
                     System.out.println("축하드립니다!");
                     Tools.pause(1);
@@ -230,7 +292,7 @@ public class Yabawi {
                     Tools.pause(2);
                 }else{
                     System.out.println("꽝! 다음 기회에..");
-                    Tools.pause(1);
+                    Tools.pause(2);
                 }
 
             }
