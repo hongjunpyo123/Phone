@@ -3,11 +3,15 @@ package com.project.phone.util;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URI;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Tools {
+    private static Random random = new Random();
     private static Runtime runtime = Runtime.getRuntime();
     private static Process process;
+
+    private static int[] randNumber;
     private Tools() {}
 
     public static void clear(){
@@ -69,6 +73,37 @@ public class Tools {
 
     public static int intLength(int myInt){
         return Integer.toString(myInt).length();
+    }
+
+    public static void set_uniqueRandArray(int count){
+        if(count > 10){
+            count = 10;
+        }
+
+        ;boolean[] randomCheck = new boolean[10];
+        int[] randomNumber = new int[count];
+
+        for(int i = 0; i < 10; i++){
+            randomCheck[i] = false;
+        }
+
+
+        for(int i = 0; i < count; i++){
+            randomNumber[i] = random.nextInt(10);
+            if(randomCheck[randomNumber[i]]){
+                i--;
+            }
+            else{
+                randomCheck[randomNumber[i]] = true;
+            }
+        }
+
+        randNumber = randomNumber;
+
+    }
+
+    public static int[] get_uniqueRandArray(){
+        return randNumber;
     }
 
 }
