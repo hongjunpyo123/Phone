@@ -42,11 +42,11 @@ public class Yabawi {
 
             System.out.printf("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
             System.out.printf("┃┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓      ┃\n");
-            System.out.printf("┃┃                           [ Yabawi Game ]                             ┃      ┃\n");
+            System.out.printf("┃┃                            [ Yabawi Game ]                            ┃      ┃\n");
             System.out.printf("┃┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫      ┃\n");
             System.out.printf("┃┃       ┏━━━━━━━━━┓            ┏━━━━━━━━━┓            ┏━━━━━━━━━┓       ┃      ┃\n");
             System.out.printf("┃┃       ┃■■■■■■■■■┃            ┃■■■■■■■■■┃            ┃■■■■■■■■■┃       ┃      ┃\n");
-            System.out.printf("┃┃       ┃    1    ┃            ┃    2    ┃            ┃    3    ┃       ┃      ┃\n");
+            System.out.printf("┃┃       ┃         ┃            ┃         ┃            ┃         ┃       ┃      ┃\n");
             System.out.printf("┃┃       ┃         ┃            ┃         ┃            ┃         ┃       ┃┏━━━━┓┃\n");
             System.out.printf("┃┃       ┃         ┃            ┃         ┃            ┃         ┃       ┃┃back┃┃\n");
             System.out.printf("┃┃       ┃         ┃            ┃         ┃            ┃         ┃       ┃┗━━━━┛┃\n");
@@ -83,11 +83,11 @@ public class Yabawi {
 
             System.out.printf("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
             System.out.printf("┃┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓      ┃\n");
-            System.out.printf("┃┃                           [ Yabawi Game ]                             ┃      ┃\n");
+            System.out.printf("┃┃                            [ Yabawi Game ]                            ┃      ┃\n");
             System.out.printf("┃┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫      ┃\n");
             System.out.printf("┃┃       ┏━━━━━━━━━┓            ┏━━━━━━━━━┓            ┏━━━━━━━━━┓       ┃      ┃\n");
             System.out.printf("┃┃       ┃■■■■■■■■■┃            ┃■■■■■■■■■┃            ┃■■■■■■■■■┃       ┃      ┃\n");
-            System.out.printf("┃┃       ┃    1    ┃            ┃    2    ┃            ┃    3    ┃       ┃      ┃\n");
+            System.out.printf("┃┃       ┃         ┃            ┃         ┃            ┃         ┃       ┃      ┃\n");
             System.out.printf("┃┃       ┃         ┃            ┃         ┃            ┃         ┃       ┃┏━━━━┓┃\n");
             System.out.printf("┃┃       ┃         ┃            ┃         ┃            ┃         ┃       ┃┃back┃┃\n");
             System.out.printf("┃┃       ┃         ┃            ┃         ┃            ┃         ┃       ┃┗━━━━┛┃\n");
@@ -155,7 +155,7 @@ public class Yabawi {
 
                 System.out.printf("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
                 System.out.printf("┃┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓      ┃\n");
-                System.out.printf("┃┃                           [ Yabawi Game ]                             ┃      ┃\n");
+                System.out.printf("┃┃                            [ Yabawi Game ]                            ┃      ┃\n");
                 System.out.printf("┃┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫      ┃\n");
                 System.out.printf("┃┃       ┏━━━━━━━━━┓            ┏━━━━━━━━━┓            ┏━━━━━━━━━┓       ┃      ┃\n");
                 System.out.printf("┃┃       ┃■■■■■■■■■┃            ┃■■■■■■■■■┃            ┃■■■■■■■■■┃       ┃      ┃\n");

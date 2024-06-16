@@ -39,14 +39,6 @@ public class Phone {
     private Phone() { }
 
     public static void main(String[] args) {
-        //test
-            Tools.set_uniqueRandArray(11);
-            for(int i = 0; i < Tools.get_uniqueRandArray().length; i++){
-                System.out.println(Tools.get_uniqueRandArray()[i]);
-            }
-            Tools.pause(20);
-
-        //test
 
         String model;
         String name;
