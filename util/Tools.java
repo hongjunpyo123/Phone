@@ -80,7 +80,7 @@ public class Tools {
             count = 10;
         }
 
-        ;boolean[] randomCheck = new boolean[10];
+        boolean[] randomCheck = new boolean[10];
         int[] randomNumber = new int[count];
 
         for(int i = 0; i < 10; i++){
@@ -105,5 +105,7 @@ public class Tools {
     public static int[] get_uniqueRandArray(){
         return randNumber;
     }
+
+
 
 }
