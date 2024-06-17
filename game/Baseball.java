@@ -7,16 +7,16 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Baseball {
-    int rdNum[] = new int[4];
-    int numArr[] = new int[4];
-    int strike = 0;
-    int ball = 0;
-    int out = 0;
-    String choose;
-    Scanner in = new Scanner(System.in);
-    Connecting connecting = Connecting.getInstance(); //db연결 객체 생성
+    private int rdNum[] = new int[4];
+    private int numArr[] = new int[4];
+    private int strike = 0;
+    private int ball = 0;
+    private int out = 0;
+    private String choose;
+    private Scanner in = new Scanner(System.in);
+    private Connecting connecting = Connecting.getInstance(); //db연결 객체 생성
     private static Baseball baseball;
-    Random r = new Random();
+    private Random r = new Random();
     private static Coin coin = Coin.getInstance();
 
 

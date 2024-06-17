@@ -12,11 +12,11 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Reservation {
-    Scanner in = new Scanner(System.in);
-    static Reservation reservation;
-    Connecting connecting = Connecting.getInstance();
-    CreateAccount createAccount = CreateAccount.getInstance(connecting);
-    Bank bank = Bank.getInstance();
+    private Scanner in = new Scanner(System.in);
+    private static Reservation reservation;
+    private Connecting connecting = Connecting.getInstance();
+    private CreateAccount createAccount = CreateAccount.getInstance(connecting);
+    private Bank bank = Bank.getInstance();
     private String input;
     private int cnt;
     private List<Room> room;

@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class TransferHistory {
     private static TransferHistory transferHistory;
     private Connecting connecting;
-    Scanner in = new Scanner(System.in);
+    private Scanner in = new Scanner(System.in);
     private TransferHistory(Connecting connecting){
         this.connecting = connecting;
     }

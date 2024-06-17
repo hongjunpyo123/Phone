@@ -8,14 +8,13 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 public class Bank {
-    Scanner in = new Scanner(System.in);
+    private Scanner in = new Scanner(System.in);
     private static Bank bank;
-    private String accountNumber;
     private String input = null;
-    Connecting connecting = Connecting.getInstance();
-    CreateAccount createAccount = CreateAccount.getInstance(connecting); //connecting의존성 주입
-    SendMoney sendMoney = SendMoney.getInstance(connecting, createAccount);// connecting, createAccount 의존성 주입
-    TransferHistory transferHistory = TransferHistory.getInstance(connecting);
+    private Connecting connecting = Connecting.getInstance();
+    private CreateAccount createAccount = CreateAccount.getInstance(connecting); //connecting의존성 주입
+    private SendMoney sendMoney = SendMoney.getInstance(connecting, createAccount);// connecting, createAccount 의존성 주입
+    private TransferHistory transferHistory = TransferHistory.getInstance(connecting);
 
     private Bank(){ }
 

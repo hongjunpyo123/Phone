@@ -25,6 +25,8 @@ public class Phone {
     public static ConnectingThread connectingThread = ConnectingThread.getInstance();
     public static Game game = Game.getInstance();
 
+
+
     public static String name;
     public static String number;
     public static String model;

@@ -13,7 +13,7 @@ public class CreateAccount {
     private Connecting connecting;
     private String accountNumber;
     private String input = null;
-    Scanner in = new Scanner(System.in);
+    private Scanner in = new Scanner(System.in);
     private CreateAccount(Connecting connecting){
         this.connecting = connecting;
     }

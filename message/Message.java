@@ -8,8 +8,8 @@ import com.project.phone.util.Tools;
 import java.util.Scanner;
 
 public class Message {
-    Scanner in = new Scanner(System.in);
-    Connecting connecting = Connecting.getInstance();
+    private Scanner in = new Scanner(System.in);
+    private Connecting connecting = Connecting.getInstance();
     private static Message message;
 
     private Message() {};

@@ -1,18 +1,13 @@
 package com.project.phone.thred;
 
 import com.project.phone.database.Connecting;
-import com.project.phone.database.DBsetting;
 import com.project.phone.main.Phone;
 import com.project.phone.util.Tools;
 
-import java.sql.*;
+import java.sql.ResultSet;
 
 public class ChatThread extends Thread {
-    Connecting connecting = Connecting.getInstance();
-    private String url = DBsetting.url;
-    private String username = DBsetting.username;
-    private String password = DBsetting.password;
-    private String number = Phone.number;
+    private Connecting connecting = Connecting.getInstance();
     public static boolean th_check;
 
     public static void setThread(boolean check) {

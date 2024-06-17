@@ -13,9 +13,9 @@ public class SendMoney {
     private String input = null;
     private int inputCash;
 
-    Connecting connecting;
-    CreateAccount createAccount;
-    Scanner in = new Scanner(System.in);
+    private Connecting connecting;
+    private CreateAccount createAccount;
+    private Scanner in = new Scanner(System.in);
 
 
 

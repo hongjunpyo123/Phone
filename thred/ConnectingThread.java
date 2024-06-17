@@ -11,8 +11,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectingThread extends Thread{
-    Connecting connecting = Connecting.getInstance();
-    FileIO fileIO = FileIO.getInstance();
+    private Connecting connecting = Connecting.getInstance();
+    private FileIO fileIO = FileIO.getInstance();
 
     private static ConnectingThread connectingThread;
 

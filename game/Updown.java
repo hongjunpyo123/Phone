@@ -1,23 +1,19 @@
 package com.project.phone.game;
 
-import com.project.phone.database.Connecting;
 import com.project.phone.util.Tools;
 
 import java.util.Random;
 import java.util.Scanner;
 
 public class Updown {
-    Scanner in = new Scanner(System.in);
-    Connecting connecting = Connecting.getInstance(); //db연결 객체 생성
+    private Scanner in = new Scanner(System.in);
     private static Updown updown;
-    Random r = new Random();
+    private Random r = new Random();
     private static Coin coin = Coin.getInstance();
     private String input;
-    private int IntegetInput = 0;
     private int attempts = 0;
 
-    private Updown() {
-    }
+    private Updown() { }
 
     public static Updown getInstance() {
         if (updown == null) {

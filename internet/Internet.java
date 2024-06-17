@@ -5,7 +5,7 @@ import com.project.phone.util.Tools;
 import java.util.Scanner;
 
 public class Internet {
-    Scanner in = new Scanner(System.in);
+    private Scanner in = new Scanner(System.in);
     private static Internet internet;
     private Internet() {}
 

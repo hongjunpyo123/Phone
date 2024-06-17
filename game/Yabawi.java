@@ -1,19 +1,13 @@
 package com.project.phone.game;
 
-import com.project.phone.bank.Bank;
-import com.project.phone.bank.CreateAccount;
-import com.project.phone.database.Connecting;
 import com.project.phone.util.Tools;
 
 import java.util.Random;
 import java.util.Scanner;
 
 public class Yabawi {
-    Random random = new Random();
+    private Random random = new Random();
     private Coin coin;
-    private Bank bank;
-    private CreateAccount createAccount;
-    private Connecting connecting;
     private Scanner in = new Scanner(System.in);
     private static Yabawi yabawi;
     private String input = null;
@@ -23,11 +17,8 @@ public class Yabawi {
 
 
 
-    private Yabawi(Coin coin, Bank bank, CreateAccount createAccount, Connecting connecting){
+    private Yabawi(Coin coin){
         this.coin = coin;
-        this.bank = bank;
-        this.createAccount = createAccount;
-        this.connecting = connecting;
     }
 
 
@@ -306,9 +297,9 @@ public class Yabawi {
     }
 
 
-    public static Yabawi getInstance(Coin coin, Bank bank, CreateAccount createAccount, Connecting connecting){
+    public static Yabawi getInstance(Coin coin){
         if(yabawi == null){
-            return yabawi = new Yabawi(coin, bank, createAccount, connecting);
+            return yabawi = new Yabawi(coin);
         }
         return yabawi;
     }

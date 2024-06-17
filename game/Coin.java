@@ -9,9 +9,9 @@ import java.util.Scanner;
 
 public class Coin {
 
-    Scanner in = new Scanner(System.in);
-    Connecting connecting = Connecting.getInstance(); //db연결 객체 생성
-    CreateAccount createAccount = CreateAccount.getInstance(connecting);
+    private Scanner in = new Scanner(System.in);
+    private Connecting connecting = Connecting.getInstance(); //db연결 객체 생성
+    private CreateAccount createAccount = CreateAccount.getInstance(connecting);
     private static Coin coin;
     private int gameCoin;
 
