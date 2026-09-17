@@ -1,0 +1,32 @@
+plugins {
+    id 'application'
+}
+
+group = 'com.project.phone'
+version = '1.0'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.mysql:mysql-connector-j:8.4.0'
+}
+
+application {
+    mainClass = 'com.project.phone.main.Phone'
+}

@@ -16,12 +16,15 @@ public class FileIO {
     public boolean createFile(String txtfilename){
         this.settingPath = "data/"+txtfilename;
         File data = new File(folderName);
-        if(data.mkdir()) {
+        if(!data.exists()){
+            data.mkdir();
             System.out.println(this.folderName+" 폴더 생성 완료");
             Tools.pause(1);
-        }else{
-            Tools.pause(1);
-            return false;
+        }
+
+        File settingFile = new File(settingPath);
+        if(settingFile.exists()){
+            return true;
         }
 
         try{
@@ -29,7 +32,7 @@ public class FileIO {
             writer.write("------------DB setting---------------\n");
             writer.write("url:jdbc:mysql://localhost:3306/phone\n");
             writer.write("username:root\n");
-            writer.write("password:\n");
+            writer.write("password:1234\n");
             writer.write("-------------------------------------\n");
             writer.close();
             System.out.println("파일 생성 완료");
